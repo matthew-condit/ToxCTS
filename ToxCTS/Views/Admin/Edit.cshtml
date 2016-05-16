@@ -1,0 +1,21 @@
+﻿@{
+    @model ToxCTS.Models.Chemical
+    Page.Title = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Edit</h2>
+
+<form method="post" action="updated" class="create-form">
+    <input required="required" type="number" name="amount" value="@Html.DisplayFor(model =>model.Amount)" min="0" />
+    <input required="required" type="text" name="chemName" value="@Html.DisplayFor(model =>model.ChemName)" />
+    <input required="required" type="text" name="comName" value="@Html.DisplayFor(model =>model.CommonName)" />
+    <input required="required" type="number" name="ContSize" value="@Html.DisplayFor(model =>model.ChemContainer.Size)" />
+    <input required="required" type="text" name="ContUnit" value="@Html.DisplayFor(model =>model.ChemContainer.Unit)" />
+    <input required="required" type="text" name="ContType" value="@Html.DisplayFor(model =>model.ChemContainer.Type)" />
+    <input required="required" type="number" name="CSCnum" value="@Html.DisplayFor(model =>model.CSC)" />
+    <input required="required" type="number" name="CASnum" value="@Html.DisplayFor(model =>model.CAS)" />
+    <input required="required" type="text" name="Manufacturer" value="@Html.DisplayFor(model =>model.Manufacturer)" />
+    <input required="required" type="date" name="ExpDate" value="@Html.DisplayFor(model =>model.ExpDate)" />
+    <input required="required" type="submit" name="Submit" value="Update" />
+</form>
