@@ -16,7 +16,7 @@ namespace ToxCTS.Controllers
             for (int i = 1; i < 101; i++)
             {
                 ToxCTS.Models.Chemical chem = new Models.Chemical();
-                chem.CommonName = "Placeholder";
+                chem.CommonName.Add("Placeholder");
                 chem.ChemName = "Placeholder";
                 chem.CAS = i;
                 Chemicals.Add(chem);
@@ -38,5 +38,14 @@ namespace ToxCTS.Controllers
         {
             return View();
         }
+
+        public ActionResult Details(int? id)
+        {
+            ToxCTS.Models.Chemical chem = new Models.Chemical();
+            chem.CommonName.Add("Placeholder");
+            chem.ChemName = "Placeholder";
+            return View(chem);
+        }
+
     }
 }

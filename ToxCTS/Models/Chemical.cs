@@ -8,6 +8,8 @@ namespace ToxCTS.Models
 {
     public class Chemical
     {
+        [Display(Name = "ID")]
+        public int ID { get; set; }
         [Display(Name = "Amount")]
         public double Amount { get; set; }
 
@@ -15,7 +17,7 @@ namespace ToxCTS.Models
         public String ChemName { get; set; }
 
         [Display(Name = "Common Name")]
-        public String CommonName { get; set; }
+        public List<String> CommonName { get; set; }
 
         [Display(Name= "Container")]
         public Container ChemContainer {get; set;}
@@ -33,17 +35,29 @@ namespace ToxCTS.Models
         [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:MM/dd/yyyy}")]
         public DateTime ExpDate { get; set; }
 
+        [Display(Name = "Location")]
+        public Location location { get; set; }
+
+        [Display(Name = "File Name")]
+        public string FileName { get; set; }
+
+        [Display(Name = "File Path")]
+        public string FilePath { get; set; }
 
         public Chemical()
         {
+            this.ID = -1;
             this.Amount = 0.0;
             this.ChemName = "";
-            this.CommonName = "";
+            this.CommonName = new List<String>();
             this.ChemContainer = new Container();
             this.CSC = -1;
             this.CAS = -1;
             this.Manufacturer = "";
             this.ExpDate = DateTime.Now;
+            this.location = new Location();
+            this.FileName = "";
+            this.FilePath = "C:/";
         }
     }
 }
