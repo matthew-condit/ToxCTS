@@ -6,16 +6,16 @@
 <h2>Create a new Chemical Entry </h2>
 <h3>All Fields Must be Filled out correctly to submit a new Chemical.</h3>
 
-<form class="create-form">
-    <input required="required" type="number"    name="amount"       placeholder="Amount" min="0" />
-    <input required="required" type="text"      name="chemName"     placeholder="Chemical Name"/>
-    <input required="required" type="text"      name="comName"      placeholder="Common Name"/>
-    <input required="required" type="number"    name="ContSize"     placeholder="Container Size"/>
-    <input required="required" type="text"      name="ContUnit"     placeholder="Container Unit" />
-    <input required="required" type="text"      name="ContType"     placeholder="Container Type" />
-    <input required="required" type="number"    name="CSCnum"       placeholder="CSC Number"  />
-    <input required="required" type="number"    name="CASnum"       placeholder="CAS Number"  />
-    <input required="required" type="text"      name="Manufacturer" placeholder="Manufacturer Name"  />
-    <input required="required" type="date"      name="ExpDate"      placeholder="Exp. Date" />
-    <input required="required" type="submit"    name="Submit" title="Create" value="Create" />
+<form class="create-form" action="@Url.Action("Created", "Admin")">
+    <h4>Amount:           </h4><input required="required" type="number"    name="amount"       placeholder="Amount" min="0" />
+    <h4>Chemical Name:    </h4><input required="required" type="text" name="chemName" placeholder="Chemical Name" />
+    <h4>Common Name:      </h4><input required="required" type="text" name="comName" placeholder="Common Name" />
+    <h4>Container Size:   </h4><input required="required" type="number" name="ContSize" placeholder="Container Size" />
+    <h4>Container Unit:   </h4><input required="required" type="text" name="ContUnit" placeholder="Container Unit" />
+    <h4> Container Type:  </h4><input required="required" type="text" name="ContType" placeholder="Container Type" />
+    <h4>CSC #:            </h4><input required="required" type="number" name="CSCnum" placeholder="CSC Number" min="0" />
+    <h4>CAS #:            </h4><input required="required" type="number" name="CASnum" placeholder="CAS Number" min="0" />
+    <h4> Manufacturer:    </h4><input required="required" type="text" name="Manufacturer" placeholder="Manufacturer Name" />
+    <h4>Exp. Date:        </h4><input required="required" type="date" name="ExpDate" placeholder="Exp. Date" />
+    <input required="required" type="submit" name="Submit" value="Create" />
 </form>

@@ -27,6 +27,13 @@ namespace ToxCTS.Controllers
         }
 
         //
+        // GET: /Admin/Created
+        public ActionResult Created()
+        {
+            return View();
+        }
+
+        //
         // GET: /Admin/Edit
         public ActionResult Edit()
         {

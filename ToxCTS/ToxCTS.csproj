@@ -261,6 +261,7 @@
     <Content Include="Views\Admin\Search.cshtml" />
     <Content Include="Views\Admin\Results.cshtml" />
     <Content Include="Views\Admin\Updated.cshtml" />
+    <Content Include="Views\Admin\Created.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
