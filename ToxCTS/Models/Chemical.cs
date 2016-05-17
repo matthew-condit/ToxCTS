@@ -44,6 +44,8 @@ namespace ToxCTS.Models
         [Display(Name = "File Path")]
         public string FilePath { get; set; }
 
+        //
+        // Creates bland new Chemical
         public Chemical()
         {
             this.ID = -1;

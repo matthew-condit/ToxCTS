@@ -10,6 +10,9 @@ namespace ToxCTS.Controllers
     {
         private List<ToxCTS.Models.Chemical> Chemicals;
 
+
+        //
+        // GET: /
         public ActionResult Index()
         {
             Chemicals = new List<ToxCTS.Models.Chemical>();
@@ -21,7 +24,6 @@ namespace ToxCTS.Controllers
                 chem.CAS = i;
                 Chemicals.Add(chem);
             }
-            ViewBag.Message = "";
             if (Chemicals.Count == 0)
             {
                 ViewBag.Message = "We're sorry, there seems to be an issue with our Databases.  Please check back later and email IT.";
@@ -29,16 +31,15 @@ namespace ToxCTS.Controllers
             return View(Chemicals);
         }
 
-        public ActionResult About()
-        {     
-            return View();
-        }
-
+        //
+        // GET: /Home/Contact
         public ActionResult Contact()
         {
             return View();
         }
-
+        
+        //
+        // GET: /Home/Details
         public ActionResult Details(int? id)
         {
             ToxCTS.Models.Chemical chem = new Models.Chemical();
