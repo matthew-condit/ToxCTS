@@ -561,7 +561,14 @@ table {
     border-spacing: 0;
     margin-top: 0.75em;
     border: 0 none;
-    margin-left: -40px;
+    margin-left: -200px;
+}
+
+.table-striped > tbody > tr:nth-child(odd) >td {
+  background-color: #f9f9f9;
+}
+.table-striped > tbody > tr:nth-child(even) > td{
+  background-color: #ddd;
 }
 
 /* Sortable tables */
@@ -576,8 +583,9 @@ th {
     text-align: center;
     border: none 0px;
     padding: 20px;
+    padding-right: 40px;
     border-width: 1px;
-    border-style: solid;
+    border-style: solid hidden;
     border-color: #aaa;
     cursor: pointer;
 
@@ -622,6 +630,7 @@ td {
     padding: 1em 2em 1em 1em;
     border: 0 none;
     border: 1px solid #aaa;
+    border-style: solid hidden;
     text-align: center;
 }
 
@@ -631,7 +640,6 @@ tr.pager td {
 
 
 .create-form h4, .create-form input {
-    font-family:
     float: left;
     clear: left;
 
