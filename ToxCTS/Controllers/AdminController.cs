@@ -10,6 +10,7 @@ namespace ToxCTS.Controllers
     {
         private List<ToxCTS.Models.Chemical> SearchResults;
         private Models.Chemical EditChem;
+        private Models.Chemical CreatedChem;
 
         //
         // GET: /Admin/
@@ -25,12 +26,20 @@ namespace ToxCTS.Controllers
         {
             return View();
         }
-
         //
         // GET: /Admin/Created
         public ActionResult Created()
         {
             return View();
+        }
+        //
+        // POST: /Admin/Created
+        [HttpPost]
+        public ActionResult Created(int amount)
+        {
+            CreatedChem = new Models.Chemical();
+            CreatedChem.Amount = amount;
+            return View(CreatedChem);
         }
 
         //

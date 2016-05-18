@@ -1,7 +1,63 @@
-﻿@{
-    @model ToxCTS.Models.Chemical
+﻿@model ToxCTS.Models.Chemical
+
+@{
     ViewBag.Title = "Created";
-    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Created</h2>
+<h2>Details</h2>
+<h3>Please Review Your New Chemical for Accuracy.</h3>
+<fieldset>
+    <legend>Chemical</legend>
+
+    <div class="display-label">
+        @Html.DisplayNameFor(model => model.Amount)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Amount)
+    </div>
+
+    <div class="display-label">
+        @Html.DisplayNameFor(model => model.ChemName)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.ChemName)
+    </div>
+
+    <div class="display-label">
+        @Html.DisplayNameFor(model => model.CommonName)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.CommonName)
+    </div>
+
+    <div class="display-label">
+        @Html.DisplayNameFor(model => model.CSC)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.CSC)
+    </div>
+
+    <div class="display-label">
+        @Html.DisplayNameFor(model => model.CAS)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.CAS)
+    </div>
+
+    <div class="display-label">
+        @Html.DisplayNameFor(model => model.Manufacturer)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Manufacturer)
+    </div>
+
+    <div class="display-label">
+        @Html.DisplayNameFor(model => model.ExpDate)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.ExpDate)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Back to List", "Index")
+</p>

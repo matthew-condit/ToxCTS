@@ -6,7 +6,7 @@
 <h2>Create a new Chemical Entry </h2>
 <h3>All Fields Must be Filled out correctly to submit a new Chemical.</h3>
 
-<form class="create-form" action="@Url.Action("Created", "Admin")">
+<form class="create-form" method="post" action="~/Admin/Created">
     <h4>Amount:           </h4><input required="required" type="number"    name="amount"       placeholder="Amount" min="0" />
     <h4>Chemical Name:    </h4><input required="required" type="text" name="chemName" placeholder="Chemical Name" />
     <h4>Common Name:      </h4><input required="required" type="text" name="comName" placeholder="Common Name" />
@@ -17,5 +17,12 @@
     <h4>CAS #:            </h4><input required="required" type="number" name="CASnum" placeholder="CAS Number" min="0" />
     <h4> Manufacturer:    </h4><input required="required" type="text" name="Manufacturer" placeholder="Manufacturer Name" />
     <h4>Exp. Date:        </h4><input required="required" type="date" name="ExpDate" placeholder="Exp. Date" />
-    <input required="required" type="submit" name="Submit" value="Create" />
+    <h4>Room #:           </h4><input required="required" type="text" name="RoomNum" placeholder="Room #" />
+    <h4>Cabinet:          </h4><input required="required" type="text" name="Cabinet" placeholder="Cabinet" />
+    @using (Html.BeginForm("Upload", "Upload", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+        <input type="file" name="FileUpload" />
+        <input type="submit" name="Submit" id="Submit" value="Upload" />
+    }
+    <input type="submit" value="Create" />
 </form>

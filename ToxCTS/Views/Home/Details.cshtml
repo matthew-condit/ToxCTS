@@ -1,11 +1,14 @@
 ﻿@model ToxCTS.Models.Chemical
 
 @{
+    Page.Title = Model.ChemName;
     ViewBag.Title = "Details";
 }
 
-<h2>Details</h2>
-
+<h2>@Page.Title</h2>
+<h3>
+    @Html.ActionLink("Back to List", "Index")
+</h3><br />
 <fieldset>
     <legend>Chemical</legend>
 
