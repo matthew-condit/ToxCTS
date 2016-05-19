@@ -1,11 +1,12 @@
 ﻿@model ToxCTS.Models.Chemical
 
 @{
-    ViewBag.Title = "Created";
+    Page.Title = "Created";
 }
 
-<h2>Details</h2>
+<h2>Details- @Html.DisplayFor(model => model.ChemName)</h2>
 <h3>Please Review Your New Chemical for Accuracy.</h3>
+<br />
 <fieldset>
     <legend>Chemical</legend>
 
@@ -15,42 +16,42 @@
     <div class="display-field">
         @Html.DisplayFor(model => model.Amount)
     </div>
-
+    <br />
     <div class="display-label">
         @Html.DisplayNameFor(model => model.ChemName)
     </div>
     <div class="display-field">
         @Html.DisplayFor(model => model.ChemName)
     </div>
-
+    <br />
     <div class="display-label">
         @Html.DisplayNameFor(model => model.CommonName)
     </div>
     <div class="display-field">
         @Html.DisplayFor(model => model.CommonName)
     </div>
-
+    <br />
     <div class="display-label">
         @Html.DisplayNameFor(model => model.CSC)
     </div>
     <div class="display-field">
         @Html.DisplayFor(model => model.CSC)
     </div>
-
+    <br />
     <div class="display-label">
         @Html.DisplayNameFor(model => model.CAS)
     </div>
     <div class="display-field">
         @Html.DisplayFor(model => model.CAS)
     </div>
-
+    <br />
     <div class="display-label">
         @Html.DisplayNameFor(model => model.Manufacturer)
     </div>
     <div class="display-field">
         @Html.DisplayFor(model => model.Manufacturer)
     </div>
-
+    <br />
     <div class="display-label">
         @Html.DisplayNameFor(model => model.ExpDate)
     </div>
@@ -59,5 +60,5 @@
     </div>
 </fieldset>
 <p>
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Back to List", "Index") |  @Html.ActionLink("Edit This Chemical", "Edit")
 </p>

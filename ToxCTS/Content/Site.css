@@ -6,7 +6,6 @@
 
 body {
     background-color: #fff;
-    border-top: solid 10px #000;
     color: #333;
     font-size: .85em;
     font-family: "Segoe UI", Verdana, Helvetica, Sans-Serif;
@@ -28,7 +27,7 @@ a {
     }
 
     a:hover {
-        background-color: #c7d1d6;
+        color: #000;
     }
 
 .scrollToTop{
@@ -36,15 +35,13 @@ a {
 	height:100px;
 	padding:10px; 
 	text-align:center; 
-	background: whiteSmoke;
 	font-weight: bold;
 	color: #444;
 	text-decoration: none;
 	position:fixed;
-	bottom:75px;
+	bottom:65px;
 	right:40px;
 	display:none;
-    opacity: 0.7;
 }
 .scrollToTop:hover{
 	text-decoration:none;
@@ -634,6 +631,9 @@ td {
     text-align: center;
 }
 
+td a {
+
+}
 tr.pager td {
     padding: 0 0.25em 0 0;
 }
@@ -642,13 +642,48 @@ tr.pager td {
 .create-form h4, .create-form input {
     float: left;
     clear: left;
+    width: 300px;
+    margin-left:1px;
+    margin-right: 0;
+    padding-left: 0;
+    padding-right:0;
 
+}
+
+.create-form input {
+    border-width: 2px;
+    border-color: #aaa;
+}
+.inline-labels h4 {
+    clear: none; 
+    display: inline;
+}
+
+.inline-inputs input {
+    clear: none;
+    display: inline;
 }
 
 
 .search-form input{
     float: left;
     clear: left;
+}
+
+fieldset .display-label {
+    font-size: 1.3em;
+    font-weight:600;
+    clear: left;
+    display: inline-block;
+}
+fieldset .display-label:after{
+    content: ':  ';
+}
+fieldset .display-field {
+    font-size: 1.1em;
+    font-weight:400;
+    display: inline;
+    clear: right;
 }
 
  /* Dropdown Button */

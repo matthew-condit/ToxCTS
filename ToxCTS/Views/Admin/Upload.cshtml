@@ -1,0 +1,13 @@
+﻿@{
+    ViewBag.Title = "Upload";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Upload</h2>
+<h4>Upload a SDS:</h4>
+@using (Html.BeginForm("Created", "Admin", new { enctype = "multipart/form-data" }))
+    {
+    <input type="number" name="amount" value="1" hidden="hidden" />
+    <input type="file" name="FileUpload" />
+    <input type="submit" name="Submit" id="Submit" value="Upload" />
+}

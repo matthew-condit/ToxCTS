@@ -33,6 +33,19 @@ namespace ToxCTS.Controllers
             return View();
         }
         //
+        // GET: /Admin/Upload
+        public ActionResult Upload()
+        {
+            return View();
+        }
+        //
+        // GET: /Admin/Updated
+        public ActionResult Updated()
+        {
+            CreatedChem = new Models.Chemical();
+            return View(CreatedChem);
+        }
+        //
         // POST: /Admin/Created
         [HttpPost]
         public ActionResult Created(int amount)
