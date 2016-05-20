@@ -675,6 +675,7 @@ fieldset .display-label {
     font-weight:600;
     clear: left;
     display: inline-block;
+    width: 16.66%;
 }
 fieldset .display-label:after{
     content: ':  ';
@@ -684,6 +685,7 @@ fieldset .display-field {
     font-weight:400;
     display: inline;
     clear: right;
+    width: 16.66%;
 }
 
  /* Dropdown Button */

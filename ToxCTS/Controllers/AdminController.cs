@@ -47,16 +47,15 @@ namespace ToxCTS.Controllers
             UploadStageChem.ChemContainer.Size = Int16.Parse(ContSize);
             UploadStageChem.ChemContainer.Unit = ContUnit;
             UploadStageChem.ChemContainer.Type = ContType;
-            UploadStageChem.CSC = int.Parse(CSCnum);
-            UploadStageChem.CAS = int.Parse(CASnum);
+            UploadStageChem.CSC = CSCnum;
+            UploadStageChem.CAS = CASnum;
             UploadStageChem.Manufacturer = Manufacturer;
             UploadStageChem.ExpDate = DateTime.Parse(ExpDate);
             UploadStageChem.location.room = RoomNum;
             UploadStageChem.location.cabinet = Cabinet;
-            UploadStageChem.ID = HomeController.nextID;
-            HomeController.nextID++;
+            UploadStageChem.ID = HomeController.getNextID();
 
-            HomeController.Chemicals.Add(UploadStageChem);
+            HomeController.addChemical(UploadStageChem);
             return View(UploadStageChem);
         }
         //
@@ -98,7 +97,7 @@ namespace ToxCTS.Controllers
         // GET:  /Admin/Results
         public ActionResult Results(string commonName, string chemicalName, string CASnum, string CSCnum)
         {
-            List<Models.Chemical> chems = HomeController.Chemicals;
+            List<Models.Chemical> chems = HomeController.getChemicals();
             List<Models.Chemical> SearchResults = new List<Models.Chemical>();
             foreach (Models.Chemical chem in chems)
             {
@@ -118,14 +117,14 @@ namespace ToxCTS.Controllers
                 }
                 if (!String.IsNullOrEmpty(CASnum))
                 {
-                    if (chem.CAS != int.Parse(CASnum))
+                    if (!chem.CAS.Equals(CASnum))
                     {
                         continue;
                     }
                 }
                 if (!String.IsNullOrEmpty(CSCnum))
                 {
-                    if (chem.CSC != int.Parse(CSCnum))
+                    if (!chem.CSC.Equals(CSCnum))
                     {
                         continue;
                     }

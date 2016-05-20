@@ -24,16 +24,16 @@ namespace ToxCTS.Models
         public Container ChemContainer {get; set;}
 
         [Display(Name = "CSC Number")]
-        public int CSC { get; set; }
+        public string CSC { get; set; }
 
         [Display(Name = "CAS Number")]
-        public int CAS { get; set; }
+        public string CAS { get; set; }
 
         [Display(Name = "Manufacturer")]
         public String Manufacturer { get; set; }
 
         [Display(Name = "Exp. Date")]
-        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:MM/dd/yyyy}")]
+        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:yyyy-MM-dd}")]
         public DateTime ExpDate { get; set; }
 
         [Display(Name = "GHS Hazard Classifications")]
@@ -60,8 +60,8 @@ namespace ToxCTS.Models
             this.ChemName = "";
             this.CommonName = new List<String>();
             this.ChemContainer = new Container();
-            this.CSC = -1;
-            this.CAS = -1;
+            this.CSC = "-1";
+            this.CAS = "-1";
             this.Manufacturer = "";
             this.ExpDate = DateTime.Now;
             this.GHS = new bool[] { true, true, true, true };

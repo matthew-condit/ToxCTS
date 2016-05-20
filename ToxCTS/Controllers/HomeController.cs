@@ -8,11 +8,32 @@ namespace ToxCTS.Controllers
 {
     public class HomeController : Controller
     {
-        public static List<ToxCTS.Models.Chemical> Chemicals = new List<ToxCTS.Models.Chemical>();
-        public static int nextID = 1;
+        private static List<ToxCTS.Models.Chemical> Chemicals = new List<ToxCTS.Models.Chemical>();
+        private static int nextID = 1;
 
         
+        //
+        //  Gets Chemicals 
+        public static List<ToxCTS.Models.Chemical> getChemicals()
+        {
+            return Chemicals;
+        }
 
+        //
+        // Adds new Chemical to Chemicals 
+        public static bool addChemical(Models.Chemical chem)
+        {
+            try
+            {
+                Chemicals.Add(chem);
+                return true;
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                return false;
+            }
+        }
         //
         // Find Chem based on Id
         public static ToxCTS.Models.Chemical getChemById(int ID)
@@ -24,6 +45,14 @@ namespace ToxCTS.Controllers
                 }
             }
             return new Models.Chemical();
+        }
+
+        //
+        //  Assign the next ID for a newly created Chemical 
+        public static int getNextID()
+        {
+            nextID++;
+            return nextID - 1;
         }
         //
         // GET: /Home/
@@ -53,14 +82,14 @@ namespace ToxCTS.Controllers
                 }
                 if (!String.IsNullOrEmpty(CASSearch))
                 {
-                    if (chem.CAS != int.Parse(CASSearch))
+                    if (!chem.CAS.Equals(CASSearch))
                     {
                         continue;
                     }
                 }
                 if (!String.IsNullOrEmpty(CSCSearch))
                 {
-                    if (chem.CSC != int.Parse(CSCSearch))
+                    if (!chem.CSC.Equals(CSCSearch))
                     {
                         continue;
                     }
