@@ -17,5 +17,28 @@
     <input required="required" type="number" placeholder="CAS#" name="CASnum" value="@Html.DisplayFor(model =>model.CAS)" />
     <input required="required" type="text" placeholder="Manufacturer" name="Manufacturer" value="@Html.DisplayFor(model =>model.Manufacturer)" />
     <input required="required" type="date" placeholder="Exp Date" name="ExpDate" value="@Html.DisplayFor(model =>model.ExpDate)" />
+    <h4>Select Hazard Warnings</h4>
+    <div class="haz"><input type="checkbox" name="GHShaz" value="H" /><img src="~/Images/Hazards/health.png" /></div>
+    <div class="haz"><input type="checkbox" name="GHShaz" value="F" /><img src="~/Images/Hazards/flame.png" /></div>
+    <div class="haz"><input type="checkbox" name="GHShaz" value="R" /><img src="~/Images/Hazards/corrosion.png" /></div>
+    <div class="haz"><input type="checkbox" name="GHShaz" value="S" /><img src="~/Images/Hazards/exclamation.png" /></div>
+
     <input required="required" type="submit" name="Submit" value="Update" />
 </form>
+
+<br />
+<form method="post" id="delete-form" action="Deleted" class="delete-form">
+    <input type="submit" value="Delete this Chemical" id="delete-button" onclick="{return verifyDelete();}"/>
+    <input hidden="hidden" value="@Model.ID" name="id" />
+</form>
+
+<script>
+    function verifyDelete() {
+        alert("This will permanently delete this chemical and all it's associated information from the CTS.");
+        var answer = confirm("Are you sure you want to delete @Model.ChemName?");
+        if (answer == true) {
+            return true;
+        }
+        else return false;
+    }
+</script>

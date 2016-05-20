@@ -46,9 +46,6 @@
             @Html.DisplayNameFor(model => model.CAS)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Manufacturer)
-        </th>
-        <th>
             @Html.DisplayNameFor(model => model.ExpDate)
         </th>
         <th></th>
@@ -80,11 +77,8 @@
             <td>
                 @Html.DisplayFor(modelItem => item.CAS)
             </td>
-            <td>
-                @Html.DisplayFor(model => item.Manufacturer)
-            </td>
            <td>
-               @Html.DisplayFor(model => item.ExpDate)
+               @String.Format("{0:d}", item.ExpDate)
            </td>
            <td>
                @Html.ActionLink("Details", "Details", new { id = item.ID })

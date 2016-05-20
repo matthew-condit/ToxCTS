@@ -25,6 +25,17 @@
     <h4>Exp. Date:        </h4><input required="required" type="date"  name ="ExpDate" placeholder="Exp. Date" />
     <h4>Room #:           </h4><input type="text" name="RoomNum" placeholder="Room #" />
     <h4>Cabinet:          </h4><input required="required" type="text" name="Cabinet" placeholder="Cabinet" />
+
+    <h4>Select Hazard Warnings</h4>
+    <div class="haz"><input type="checkbox" name="health" value="true" /><img src="~/Images/Hazards/health.png" /></div>
+    <div class="haz"><input type="checkbox" name="flame" value="true" /><img src="~/Images/Hazards/flame.png" /></div>
+    <div class="haz"><input type="checkbox" name="corrosion" value="true" /><img src="~/Images/Hazards/corrosion.png" /></div>
+    <div class="haz"><input type="checkbox" name="exclamation" value="true" /><img src="~/Images/Hazards/exclamation.png" /></div>
+    <input hidden="hidden" type="checkbox" name="health" value="false" />
+    <input hidden="hidden" type="checkbox" name="flame" value="false" />
+    <input hidden="hidden" type="checkbox" name="corrosion" value="false" />
+    <input hidden="hidden" type="checkbox" name="exclamation" value="false" />
+
     
     <input type="submit" value="Create" />
 </form>

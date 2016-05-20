@@ -37,10 +37,10 @@ namespace ToxCTS.Models
         public DateTime ExpDate { get; set; }
 
         [Display(Name = "GHS Hazard Classifications")]
-        public bool[] GHS { get; set; }
+        public List<string> GHS { get; set; }
 
         [Display(Name = "Hazards")]
-        public bool[] Hazards { get; set; }
+        public List<string> Hazards { get; set; }
 
         [Display(Name = "Location")]
         public Location location { get; set; }
@@ -64,8 +64,8 @@ namespace ToxCTS.Models
             this.CAS = "-1";
             this.Manufacturer = "";
             this.ExpDate = DateTime.Now;
-            this.GHS = new bool[] { true, true, true, true };
-            this.Hazards = new bool[] { true, true, true, true };
+            this.GHS = new List<string>();
+            this.Hazards = new List<string>();
             this.location = new Location();
             this.FileName = "";
             this.FilePath = "C:/";

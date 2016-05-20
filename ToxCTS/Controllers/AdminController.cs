@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Diagnostics;
 
 namespace ToxCTS.Controllers
 {
@@ -38,7 +39,8 @@ namespace ToxCTS.Controllers
         // GET: /Admin/Upload
         public ActionResult Upload(string amount, string chemName, string commName,
             string ContSize, string ContUnit, string ContType, string CSCnum, string CASnum, 
-            string Manufacturer, string ExpDate, string RoomNum, string Cabinet)
+            string Manufacturer, string ExpDate, string RoomNum, string Cabinet, 
+            bool? health, bool? flame, bool? corrosion, bool? exclamation)
         {
             UploadStageChem = new Models.Chemical();
             UploadStageChem.Amount = Double.Parse(amount);
@@ -54,6 +56,12 @@ namespace ToxCTS.Controllers
             UploadStageChem.location.room = RoomNum;
             UploadStageChem.location.cabinet = Cabinet;
             UploadStageChem.ID = HomeController.getNextID();
+            if (isTrue(health)) { UploadStageChem.Hazards.Add("health.png"); }
+            if (isTrue(flame)) { UploadStageChem.Hazards.Add("flame.png"); }
+            if (isTrue(corrosion)) { UploadStageChem.Hazards.Add("corrosion.png"); }
+            if (isTrue(exclamation)) { UploadStageChem.Hazards.Add("exclamation.png"); }
+
+
 
             HomeController.addChemical(UploadStageChem);
             return View(UploadStageChem);
@@ -135,5 +143,32 @@ namespace ToxCTS.Controllers
             if (SearchResults.Count ==0) { ViewBag.Message = "No Results for this search."; }
             return View(SearchResults);
         }
+
+        //
+        // GET: /Admin/Deleted 
+        public ActionResult Deleted()
+        {
+
+            return View();
+        }
+
+
+        //
+        //Helper, returns true only if boolean is defined and true
+        public static bool isTrue(bool? b) {
+            try
+            {
+                if (b == true)
+                {
+                    return true;
+                }
+            }
+            catch (Exception e)
+            {
+             
+            }
+            return false;
     }
+    }
+ 
 }

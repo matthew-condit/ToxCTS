@@ -639,7 +639,7 @@ tr.pager td {
 }
 
 
-.create-form h4, .create-form input {
+.create-form h4, .create-form input, .create-form .haz {
     float: left;
     clear: left;
     width: 300px;
@@ -686,6 +686,34 @@ fieldset .display-field {
     display: inline;
     clear: right;
     width: 16.66%;
+}
+.haz input {
+    width: 20px;
+    padding-top: 18px;
+}
+
+.haz img{
+    width:50px;
+    display: inline;
+
+}
+
+.detail-haz {
+    display: inline;
+    width: 50px;
+}
+
+.haz-container {
+
+}
+
+.delete-form {
+    clear: left;
+}
+#delete-button {
+    background-color: red;
+    color: white;
+    width: 300px;
 }
 
  /* Dropdown Button */

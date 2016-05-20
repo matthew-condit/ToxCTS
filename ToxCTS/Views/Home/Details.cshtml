@@ -5,7 +5,13 @@
     ViewBag.Title = "Details";
 }
 
-<h2>@Page.Title</h2>
+<h2>@Page.Title</h2><br />
+<div class="haz-container">
+@foreach (string imgname in @Model.Hazards)
+{
+    <img src="~/Images/Hazards/@imgname" class="detail-haz" alt="@imgname"/>
+}
+</div>  
 <h3>
     @Html.ActionLink("Back to List", "Index")
 </h3><br />
