@@ -1,11 +1,23 @@
 ﻿@{
     @model IEnumerable<ToxCTS.Models.Chemical>
-    ViewBag.Title = "Results";
-    Page.Title = "Results";
     Layout = "~/Views/Shared/_Layout.cshtml";
+    Page.Title = "Home";
 }
 
-<h2>@ViewBag.Title for </h2>
+@section featured {
+    <section class="featured">
+        <div class="content-wrapper">
+            <form>
+                <b>Search for a Chemical:</b><br />
+                <input type="search" name="ChemNameSearch" placeholder="Chemical Name" />
+                <input type="search" name="CSCSearch" placeholder="CSC#" />
+                <input type="search" name="CASSearch" placeholder="CAS#" />
+                <input type="submit" value="Search" />
+                <br /><br />
+            </form>
+        </div>
+    </section>
+}
 
 <table class="table table-striped sortable">
     <tr>
@@ -74,8 +86,12 @@
             <td>
                 @Html.DisplayFor(model => item.ExpDate)
             </td>
-            <td>@Html.ActionLink("Edit", "Edit", new { id = item.ID })</td>
+            <td>
+                @Html.ActionLink("Details", "Details", new { id = item.ID })
+            </td>
         </tr>
     }
 </table>
-<h2 class="error">@ViewBag.Message</h2>
+<h2 >@ViewBag.Message</h2>
+
+<a href="#" class="scrollToTop"><img src="~/Images/top_button.png" width="100" height="100" />Back to Top</a>

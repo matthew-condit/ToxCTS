@@ -9,13 +9,16 @@
 <form class="create-form" method="post" action="~/Admin/Upload">
     <h4>Amount:           </h4><input required="required" type="number"    name="amount"       placeholder="Amount" min="0" />
     <h4>Chemical Name:    </h4><input required="required" type="text" name="chemName" placeholder="Chemical Name" />
-    <h4>Common Name:      </h4><input required="required" type="text" name="comName" placeholder="Common Name" /><br />
-    <h4>Container Size:   </h4> <div class="inline-labels">   <h4>Container Unit:   </h4><h4> Container Type:  </h4></div><br />
+    <h4>Common Name:      </h4><input required="required" type="text" name="commName" placeholder="Common Name" /><br />
+    <h4>Container Size:   </h4> 
+    <div class="inline-labels">   
+        <h4>Container Unit:   </h4><h4> Container Type:  </h4>
+    </div><br />
     <input required="required" type="number" name="ContSize" placeholder="Container Size" />
-        <div class="inline-inputs">
-            <input required="required" type="text" name="ContUnit" placeholder="Container Unit" />
-            <input required="required" type="text" name="ContType" placeholder="Container Type" />
-        </div>
+    <div class="inline-inputs">
+        <input required="required" type="text" name="ContUnit" placeholder="Container Unit" />
+        <input required="required" type="text" name="ContType" placeholder="Container Type" />
+    </div>
     <h4>CSC #:            </h4><input required="required" type="number" name="CSCnum" placeholder="CSC Number" min="0" />
     <h4>CAS #:            </h4><input required="required" type="number" name="CASnum" placeholder="CAS Number" min="0" />
     <h4> Manufacturer:    </h4><input required="required" type="text" name="Manufacturer" placeholder="Manufacturer Name" />
