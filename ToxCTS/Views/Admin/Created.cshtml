@@ -56,7 +56,7 @@
         @Html.DisplayNameFor(model => model.ExpDate)
     </div>
     <div class="display-field">
-        @Html.DisplayFor(model => model.ExpDate)
+        @String.Format("{0:d}", Model.ExpDate)
     </div>
 </fieldset>
 <p>

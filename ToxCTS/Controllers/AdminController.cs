@@ -80,15 +80,18 @@ namespace ToxCTS.Controllers
         public ActionResult Created(String ID, HttpPostedFileBase FileUpload)
         {
             CreatedChem = HomeController.getChemById(int.Parse(ID));
-            if (FileUpload.ContentLength > 0)
-            {
-                var fileName = Path.GetFileName(FileUpload.FileName);
-                var path = Path.Combine(Server.MapPath("~/App_Data/uploads"), fileName);
-                FileUpload.SaveAs(path);
-                CreatedChem.FileName = fileName;
-                CreatedChem.FilePath = path;
-            }
             
+            if (!HttpIsNull(FileUpload))
+            {
+                if (FileUpload.ContentLength > 0)
+                {
+                    var fileName = Path.GetFileName(FileUpload.FileName);
+                    var path = Path.Combine(Server.MapPath("~/App_Data/uploads"), fileName);
+                    FileUpload.SaveAs(path);
+                    CreatedChem.FileName = fileName;
+                    CreatedChem.FilePath = path;
+                }
+            }
             return View(CreatedChem);
         }
 
@@ -202,7 +205,18 @@ namespace ToxCTS.Controllers
              
             }
             return false;
-    }
+        }
+
+        public static bool HttpIsNull(HttpPostedFileBase h) {
+            try
+            {
+                if (! h.Equals(null)) return false;
+            }
+            catch (Exception e)
+            {
+            }
+            return true;
+        }
     }
  
 }
