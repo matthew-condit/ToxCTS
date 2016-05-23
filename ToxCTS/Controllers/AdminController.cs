@@ -68,10 +68,10 @@ namespace ToxCTS.Controllers
         }
         //
         // GET: /Admin/Updated
-        public ActionResult Updated()
+        public ActionResult Updated(String id)
         {
-            CreatedChem = new Models.Chemical();
-            return View(CreatedChem);
+            ToxCTS.Models.Chemical updatedChem = HomeController.getChemById(int.Parse(id));
+            return View(updatedChem);
         }
         //
         // POST: /Admin/Created
@@ -146,9 +146,17 @@ namespace ToxCTS.Controllers
 
         //
         // GET: /Admin/Deleted 
-        public ActionResult Deleted()
+        public ActionResult Deleted(string id)
         {
-
+            bool successful = HomeController.deleteChemById(int.Parse(id));
+            if (successful)
+            {
+                ViewBag.Message = "You have successfully deleted this chemical.";
+            }
+            else
+            {
+                ViewBag.Message = "There has been an issue deleting your chemical.  Please contact IT to resolve this issue.";
+            }
             return View();
         }
 

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Diagnostics;
 
 namespace ToxCTS.Controllers
 {
@@ -45,6 +46,23 @@ namespace ToxCTS.Controllers
                 }
             }
             return new Models.Chemical();
+        }
+
+        public static bool deleteChemById(int ID)
+        {
+            try
+            {
+
+                int removed = Chemicals.RemoveAll(item => item.ID == ID);
+                if (removed == 1) return true;
+                return false;
+            }
+            catch (Exception e)
+            {
+                Debug.WriteLine(e);
+                return false;
+            }
+
         }
 
         //
