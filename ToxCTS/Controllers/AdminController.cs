@@ -30,12 +30,7 @@ namespace ToxCTS.Controllers
         {
             return View();
         }
-        //
-        // GET: /Admin/Created
-        public ActionResult Created()
-        {
-            return View();
-        }
+        
         //
         // GET: /Admin/Upload
         public ActionResult Upload(string amount, string chemName, string commName,
@@ -73,6 +68,12 @@ namespace ToxCTS.Controllers
         {
             ToxCTS.Models.Chemical updatedChem = HomeController.getChemById(int.Parse(id));
             return View(updatedChem);
+        }
+        //
+        // GET: /Admin/Created
+        public ActionResult Created()
+        {
+            return View();
         }
         //
         // POST: /Admin/Created
