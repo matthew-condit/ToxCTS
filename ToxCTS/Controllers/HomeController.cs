@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using System.Diagnostics;
+using System.IO;
 
 namespace ToxCTS.Controllers
 {
@@ -140,6 +141,25 @@ namespace ToxCTS.Controllers
                 }
             }
             return View(new Models.Chemical());
+        }
+
+        //
+        //Open That sucker Up
+        public ActionResult OpenFile(string fileName, string filePath)
+        {
+            filePath = filePath.Replace(@"N:\SPONSORS\", @"\\toxfs\Protocol\SPONSORS\");
+            filePath = filePath.Replace(@"Z:\", @"\\toxfs\Pharma File\");
+
+            FileInfo fileInfo = new FileInfo(filePath);
+            if (!fileInfo.Exists)
+            {
+                return RedirectToAction("Index", "Error", new { status = 400 });
+            }
+
+            byte[] fileBytes = System.IO.File.ReadAllBytes(filePath);
+
+            FileStream fileStream = new FileStream(filePath, FileMode.Open, FileAccess.Read);
+            return new FileStreamResult(fileStream, "application/pdf");
         }
 
     }

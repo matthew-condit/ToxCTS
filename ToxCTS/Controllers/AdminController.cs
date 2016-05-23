@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using System.Diagnostics;
+using System.IO;
 
 namespace ToxCTS.Controllers
 {
@@ -76,10 +77,18 @@ namespace ToxCTS.Controllers
         //
         // POST: /Admin/Created
         [HttpPost]
-        public ActionResult Created(String ID, String FileUpload)
+        public ActionResult Created(String ID, HttpPostedFileBase FileUpload)
         {
-
             CreatedChem = HomeController.getChemById(int.Parse(ID));
+            if (FileUpload.ContentLength > 0)
+            {
+                var fileName = Path.GetFileName(FileUpload.FileName);
+                var path = Path.Combine(Server.MapPath("~/App_Data/uploads"), fileName);
+                FileUpload.SaveAs(path);
+                CreatedChem.FileName = fileName;
+                CreatedChem.FilePath = path;
+            }
+            
             return View(CreatedChem);
         }
 
@@ -161,6 +170,23 @@ namespace ToxCTS.Controllers
         }
 
 
+        //
+        //Open That sucker Up
+        public ActionResult OpenFile(string fileName, string filePath)
+        {
+            filePath = filePath.Replace(@"N:\SPONSORS\", @"\\toxfs\Protocol\SPONSORS\");
+            filePath = filePath.Replace(@"Z:\", @"\\toxfs\Pharma File\");
+
+            FileInfo fileInfo = new FileInfo(filePath);
+            if (!fileInfo.Exists)
+            {
+                return RedirectToAction("Index", "Error", new { status = 400 });
+            }
+
+            byte[] fileBytes = System.IO.File.ReadAllBytes(filePath);
+
+            return File(fileBytes, System.Net.Mime.MediaTypeNames.Application.Octet, fileName);
+        }
         //
         //Helper, returns true only if boolean is defined and true
         public static bool isTrue(bool? b) {

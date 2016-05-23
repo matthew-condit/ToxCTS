@@ -30,7 +30,7 @@
 </form>
 
 <br />
-<form method="post" id="delete-form" action="Deleted" class="delete-form">
+<form method="post" id="delete-form" action="~/Admin/Deleted" class="delete-form">
     <input type="submit" value="Delete this Chemical" id="delete-button" onclick="{return verifyDelete();}"/>
     <input hidden="hidden" value="@Model.ID" name="id" />
 </form>

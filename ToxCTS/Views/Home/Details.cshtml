@@ -72,6 +72,11 @@
     </div>
     <div class="display-field">
         @String.Format("{0:d}", Model.ExpDate)
-    </div>
+    </div><br />
+    @if (!String.IsNullOrEmpty(Model.FileName))
+    {   
+        <h4>Open SDS:</h4>
+        @Html.ActionLink("Open File", "OpenFile", new { fileName = Model.FileName, filePath = Model.FilePath }, new { target="_blank"})
+    }
 </fieldset>
 
