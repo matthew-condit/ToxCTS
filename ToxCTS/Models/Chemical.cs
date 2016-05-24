@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.ComponentModel.DataAnnotations;
+using System.Data.Entity;
 
 namespace ToxCTS.Models
 {
@@ -24,10 +25,10 @@ namespace ToxCTS.Models
         public Container ChemContainer {get; set;}
 
         [Display(Name = "CSC Number")]
-        public string CSC { get; set; }
+        public String CSC { get; set; }
 
         [Display(Name = "CAS Number")]
-        public string CAS { get; set; }
+        public String CAS { get; set; }
 
         [Display(Name = "Manufacturer")]
         public String Manufacturer { get; set; }
@@ -37,19 +38,19 @@ namespace ToxCTS.Models
         public DateTime ExpDate { get; set; }
 
         [Display(Name = "GHS Hazard Classifications")]
-        public List<string> GHS { get; set; }
+        public List<String> GHS { get; set; }
 
         [Display(Name = "Hazards")]
-        public List<string> Hazards { get; set; }
+        public List<String> Hazards { get; set; }
 
         [Display(Name = "Location")]
         public Location location { get; set; }
 
         [Display(Name = "File Name")]
-        public string FileName { get; set; }
+        public String FileName { get; set; }
 
         [Display(Name = "File Path")]
-        public string FilePath { get; set; }
+        public String FilePath { get; set; }
 
         //
         // Creates bland new Chemical
@@ -71,4 +72,5 @@ namespace ToxCTS.Models
             this.FilePath = "C:/";
         }
     }
+
 }

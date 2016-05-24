@@ -6,7 +6,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <TimeStampOfAssociatedLegacyPublishXmlFile />
-    <_PublishTargetUrl>\\cts\c$\web\CTS</_PublishTargetUrl>
+    <_PublishTargetUrl>\\cts\c$\www\ToxCTS</_PublishTargetUrl>
   </PropertyGroup>
   <ItemGroup>
     <File Include="bin/Antlr3.Runtime.dll">
@@ -463,13 +463,13 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>05/23/2016 15:25:25</publishTime>
     </File>
     <File Include="Views/Web.config">
-      <publishTime>05/16/2016 09:34:12</publishTime>
+      <publishTime>05/24/2016 09:37:53</publishTime>
     </File>
     <File Include="Views/_ViewStart.cshtml">
       <publishTime>05/16/2016 09:34:12</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>05/24/2016 09:25:44</publishTime>
+      <publishTime>05/24/2016 10:28:16</publishTime>
     </File>
   </ItemGroup>
 </Project>
