@@ -1,0 +1,48 @@
+﻿@{
+    @model ToxCTS.Models.Chemical
+    Page.Title = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Edit</h2>
+
+<form method="post" action="~/Admin/Updated" class="create-form">
+    <h4>Amount:           </h4><input  type="number" placeholder="Amount" name="amount" value="@Html.DisplayFor(model =>model.Amount)" min="0" />
+    <h4>Chemical Name:    </h4><input  type="text" placeholder="Chemical Name" name="chemName" value="@Html.DisplayFor(model =>model.ChemName)" />
+    <h4>Common Name:      </h4><input  type="text" placeholder="Common Name" name="comName" value="@Html.DisplayFor(model =>model.CommonName)" />
+    <h4>Container Size:   </h4><input  type="number" placeholder="Size" name="ContSize" value="@Html.DisplayFor(model =>model.ChemContainer.Size)" />
+    <h4>Container Unit:   </h4><input  type="text" placeholder="Unit" name="ContUnit" value="@Html.DisplayFor(model =>model.ChemContainer.Unit)" />
+    <h4> Container Type:  </h4><input  type="text" placeholder="Glass/Plastic" name="ContType" value="@Html.DisplayFor(model =>model.ChemContainer.Type)" />
+    <h4>CSC #:            </h4><input  type="text" placeholder="CSC#" name="CSCnum" value="@Html.DisplayFor(model =>model.CSC)" />
+    <h4>CAS #:            </h4><input  type="text" placeholder="CAS#" name="CASnum" value="@Html.DisplayFor(model =>model.CAS)" />
+    <h4> Manufacturer:    </h4><input  type="text" placeholder="Manufacturer" name="Manufacturer" value="@Html.DisplayFor(model =>model.Manufacturer)" />
+    <h4>Exp. Date:        </h4><input  type="date" placeholder="Exp Date" name="ExpDate" value="@Html.DisplayFor(model =>model.ExpDate)" />
+    <h4>Room #:           </h4><input  type="text" name="RoomNum" placeholder="Room #" value="@Html.DisplayFor(model => model.location.room)"/>
+    <h4>Cabinet:          </h4><input  type="text" name="Cabinet" placeholder="Cabinet" value="@Html.DisplayFor(model => model.location.cabinet)" />
+
+    <h4>Select Hazard Warnings</h4>
+    <div class="haz"><input type="checkbox" name="GHShaz" value="H" /><img src="~/Images/Hazards/health.png" /></div>
+    <div class="haz"><input type="checkbox" name="GHShaz" value="F" /><img src="~/Images/Hazards/flame.png" /></div>
+    <div class="haz"><input type="checkbox" name="GHShaz" value="R" /><img src="~/Images/Hazards/corrosion.png" /></div>
+    <div class="haz"><input type="checkbox" name="GHShaz" value="S" /><img src="~/Images/Hazards/exclamation.png" /></div>
+    <input hidden="hidden" value="@Model.ID" name="id" />
+    <input required="required" type="submit" name="Submit" value="Update" />
+</form>
+
+<br />
+<form method="post" id="delete-form" action="~/Admin/Deleted" class="delete-form">
+    <input type="submit" value="Delete this Chemical" id="delete-button" onclick="{return verifyDelete();}"/>
+    <input hidden="hidden" value="@Model.ID" name="id" />
+</form>
+
+<script>
+    function verifyDelete() {
+        alert("This will permanently delete this chemical and all it's associated information from the CTS.");
+        var answer = confirm("Are you sure you want to delete @Model.ChemName?");
+        if (answer == true) {
+            return true;
+        }
+        else return false;
+    }
+    
+</script>

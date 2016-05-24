@@ -1,0 +1,82 @@
+﻿@model ToxCTS.Models.Chemical
+
+@{
+    Page.Title = Model.ChemName;
+    ViewBag.Title = "Details";
+}
+
+<h2>@Page.Title</h2><br />
+<div class="haz-container">
+@foreach (string imgname in @Model.Hazards)
+{
+    <img src="~/Images/Hazards/@imgname" class="detail-haz" alt="@imgname"/>
+}
+</div>  
+<h3>
+    @Html.ActionLink("Back to List", "Index")
+</h3><br />
+<fieldset>
+    <legend>Chemical</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Amount)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Amount)
+    </div><br />
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.ChemName)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.ChemName)
+    </div>
+    <br />
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.CommonName)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.CommonName)
+    </div>
+    <br />
+    <div class="display-label">
+        @Html.DisplayNameFor(model => model.ChemContainer)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.ChemContainer.Size) @Html.DisplayFor(model => model.ChemContainer.Unit) @Html.DisplayFor(model => model.ChemContainer.Type)
+    </div>
+    <br />
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.CSC)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.CSC)
+    </div>
+    <br />
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.CAS)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.CAS)
+    </div>
+    <br />
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Manufacturer)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Manufacturer)
+    </div>
+    <br />
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.ExpDate)
+    </div>
+    <div class="display-field">
+        @String.Format("{0:d}", Model.ExpDate)
+    </div><br />
+    @if (!String.IsNullOrEmpty(Model.FileName))
+    {   
+        <h4>Open SDS:</h4>
+        @Html.ActionLink("Open File", "OpenFile", new { fileName = Model.FileName, filePath = Model.FilePath }, new { target="_blank"})
+    }
+</fieldset>
+
