@@ -69,7 +69,26 @@ namespace ToxCTS.Controllers
         }
         //
         // POST: /Admin/Updated
-        public ActionResult Updated(string id, string amount, string chemName, string commName,
+        public ActionResult Updated(String ID, HttpPostedFileBase FileUpload)
+        {
+            CreatedChem = HomeController.getChemById(int.Parse(ID));
+
+            if (!HttpIsNull(FileUpload))
+            {
+                if (FileUpload.ContentLength > 0)
+                {
+                    var fileName = Path.GetFileName(FileUpload.FileName);
+                    var path = Path.Combine(Server.MapPath("~/App_Data/uploads"), fileName);
+                    FileUpload.SaveAs(path);
+                    CreatedChem.FileName = fileName;
+                    CreatedChem.FilePath = path;
+                }
+            }
+            return View(CreatedChem);
+        }
+        //
+        // POST: /Admin/SDS
+        public ActionResult SDS(string id, string amount, string chemName, string commName,
             string ContSize, string ContUnit, string ContType, string CSCnum, string CASnum,
             string Manufacturer, string ExpDate, string RoomNum, string Cabinet,
             bool? health, bool? flame, bool? corrosion, bool? exclamation)
@@ -97,7 +116,6 @@ namespace ToxCTS.Controllers
 
             return View(updatedChem);
         }
-
         //
         // GET: /Admin/Created
         public ActionResult Created()
