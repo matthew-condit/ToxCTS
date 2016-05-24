@@ -11,14 +11,14 @@
     <h4>Chemical Name:    </h4><input  type="text" placeholder="Chemical Name" name="chemName" value="@Html.DisplayFor(model =>model.ChemName)" />
     <h4>Common Name:      </h4><input  type="text" placeholder="Common Name" name="comName" value="@Html.DisplayFor(model =>model.CommonName)" />
     <h4>Container Size:   </h4><input  type="number" placeholder="Size" name="ContSize" value="@Html.DisplayFor(model =>model.ChemContainer.Size)" />
-    <h4>Container Unit:   </h4><input  type="text" placeholder="Unit" name="ContUnit" value="@Html.DisplayFor(model =>model.ChemContainer.Unit)" />
-    <h4> Container Type:  </h4><input  type="text" placeholder="Glass/Plastic" name="ContType" value="@Html.DisplayFor(model =>model.ChemContainer.Type)" />
+    <h4>Container Unit:   </h4><input  type="text" placeholder="Unit" list="units" name="ContUnit" value="@Html.DisplayFor(model =>model.ChemContainer.Unit)" />
+    <h4> Container Type:  </h4><input  type="text" list="cont-types" placeholder="Glass/Plastic" name="ContType" value="@Html.DisplayFor(model =>model.ChemContainer.Type)" />
     <h4>CSC #:            </h4><input  type="text" placeholder="CSC#" name="CSCnum" value="@Html.DisplayFor(model =>model.CSC)" />
     <h4>CAS #:            </h4><input  type="text" placeholder="CAS#" name="CASnum" value="@Html.DisplayFor(model =>model.CAS)" />
     <h4> Manufacturer:    </h4><input  type="text" placeholder="Manufacturer" name="Manufacturer" value="@Html.DisplayFor(model =>model.Manufacturer)" />
     <h4>Exp. Date:        </h4><input  type="date" placeholder="Exp Date" name="ExpDate" value="@Html.DisplayFor(model =>model.ExpDate)" />
     <h4>Room #:           </h4><input  type="text" name="RoomNum" placeholder="Room #" value="@Html.DisplayFor(model => model.location.room)"/>
-    <h4>Cabinet:          </h4><input  type="text" name="Cabinet" placeholder="Cabinet" value="@Html.DisplayFor(model => model.location.cabinet)" />
+    <h4>Cabinet:          </h4><input  type="text" list="cabinets" name="Cabinet" placeholder="Cabinet" value="@Html.DisplayFor(model => model.location.cabinet)" />
 
     <h4>Select Hazard Warnings</h4>
     <div class="haz"><input type="checkbox" name="GHShaz" value="H" /><img src="~/Images/Hazards/health.png" /></div>
@@ -37,7 +37,6 @@
 
 <script>
     function verifyDelete() {
-        alert("This will permanently delete this chemical and all it's associated information from the CTS.");
         var answer = confirm("Are you sure you want to delete @Model.ChemName?");
         if (answer == true) {
             return true;
@@ -46,3 +45,20 @@
     }
     
 </script>
+
+<datalist id="cont-types">
+    <option value="Glass">Glass</option>
+    <option value="Plastic">Plastic</option>
+    <option value="Can">Can</option>
+</datalist>
+
+<datalist id="cabinets">
+    <option value="flam cab">flam cab</option>
+    <option value="cab 2-glass">cab 2-glass</option>
+</datalist>
+
+<datalist id="units">
+    <option value="L">L</option>
+    <option value="mL">mL</option>
+    <option value="g">g</option>
+</datalist>

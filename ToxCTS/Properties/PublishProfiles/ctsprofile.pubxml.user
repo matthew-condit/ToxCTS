@@ -130,7 +130,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>05/16/2016 09:34:50</publishTime>
     </File>
     <File Include="bin/ToxCTS.dll">
-      <publishTime>05/23/2016 16:17:49</publishTime>
+      <publishTime>05/24/2016 15:42:20</publishTime>
     </File>
     <File Include="bin/WebGrease.dll">
       <publishTime>05/16/2016 09:34:58</publishTime>
@@ -152,6 +152,36 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     </File>
     <File Include="bin/zh-Hant/System.Spatial.resources.dll">
       <publishTime>05/16/2016 09:34:53</publishTime>
+    </File>
+    <File Include="Content/Hazards/corrosion.png">
+      <publishTime>05/20/2016 12:12:48</publishTime>
+    </File>
+    <File Include="Content/Hazards/environment.png">
+      <publishTime>05/20/2016 12:13:20</publishTime>
+    </File>
+    <File Include="Content/Hazards/exclamation.png">
+      <publishTime>05/20/2016 12:13:45</publishTime>
+    </File>
+    <File Include="Content/Hazards/explodingbomb.png">
+      <publishTime>05/20/2016 12:09:28</publishTime>
+    </File>
+    <File Include="Content/Hazards/flame.png">
+      <publishTime>05/20/2016 12:09:06</publishTime>
+    </File>
+    <File Include="Content/Hazards/flameovercircle.png">
+      <publishTime>05/20/2016 12:09:16</publishTime>
+    </File>
+    <File Include="Content/Hazards/gascylinder.png">
+      <publishTime>05/20/2016 12:13:00</publishTime>
+    </File>
+    <File Include="Content/Hazards/health.png">
+      <publishTime>05/20/2016 12:13:08</publishTime>
+    </File>
+    <File Include="Content/Hazards/skullandbones.png">
+      <publishTime>05/20/2016 12:12:32</publishTime>
+    </File>
+    <File Include="Content/logo.gif">
+      <publishTime>05/16/2016 08:39:37</publishTime>
     </File>
     <File Include="Content/Site.css">
       <publishTime>05/23/2016 15:27:14</publishTime>
@@ -330,8 +360,38 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     <File Include="Images/bullet.png">
       <publishTime>05/16/2016 09:34:12</publishTime>
     </File>
+    <File Include="Images/Hazards/corrosion.png">
+      <publishTime>05/20/2016 12:12:48</publishTime>
+    </File>
+    <File Include="Images/Hazards/environment.png">
+      <publishTime>05/20/2016 12:13:20</publishTime>
+    </File>
+    <File Include="Images/Hazards/exclamation.png">
+      <publishTime>05/20/2016 12:13:45</publishTime>
+    </File>
+    <File Include="Images/Hazards/explodingbomb.png">
+      <publishTime>05/20/2016 12:09:28</publishTime>
+    </File>
+    <File Include="Images/Hazards/flame.png">
+      <publishTime>05/20/2016 12:09:06</publishTime>
+    </File>
+    <File Include="Images/Hazards/flameovercircle.png">
+      <publishTime>05/20/2016 12:09:16</publishTime>
+    </File>
+    <File Include="Images/Hazards/gascylinder.png">
+      <publishTime>05/20/2016 12:13:00</publishTime>
+    </File>
+    <File Include="Images/Hazards/health.png">
+      <publishTime>05/20/2016 12:13:08</publishTime>
+    </File>
+    <File Include="Images/Hazards/skullandbones.png">
+      <publishTime>05/20/2016 12:12:32</publishTime>
+    </File>
     <File Include="Images/heroAccent.png">
       <publishTime>05/16/2016 09:34:12</publishTime>
+    </File>
+    <File Include="Images/logo.gif">
+      <publishTime>05/16/2016 08:39:37</publishTime>
     </File>
     <File Include="Images/orderedList0.png">
       <publishTime>05/16/2016 09:34:12</publishTime>
@@ -362,6 +422,12 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     </File>
     <File Include="Images/orderedList9.png">
       <publishTime>05/16/2016 09:34:12</publishTime>
+    </File>
+    <File Include="Images/top_button.png">
+      <publishTime>05/19/2016 08:16:26</publishTime>
+    </File>
+    <File Include="Images/upArrow.gif">
+      <publishTime>05/18/2016 15:39:50</publishTime>
     </File>
     <File Include="packages.config">
       <publishTime>05/16/2016 09:34:59</publishTime>
@@ -418,7 +484,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>05/16/2016 09:34:48</publishTime>
     </File>
     <File Include="Views/Admin/Create.cshtml">
-      <publishTime>05/23/2016 09:28:21</publishTime>
+      <publishTime>05/24/2016 11:42:30</publishTime>
     </File>
     <File Include="Views/Admin/Created.cshtml">
       <publishTime>05/23/2016 14:37:23</publishTime>
@@ -442,7 +508,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>05/23/2016 10:49:40</publishTime>
     </File>
     <File Include="Views/Admin/Upload.cshtml">
-      <publishTime>05/23/2016 14:08:25</publishTime>
+      <publishTime>05/24/2016 12:10:42</publishTime>
     </File>
     <File Include="Views/Home/Contact.cshtml">
       <publishTime>05/16/2016 10:12:45</publishTime>

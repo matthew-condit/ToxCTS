@@ -57,24 +57,54 @@ namespace ToxCTS.Controllers
             if (isTrue(corrosion)) { UploadStageChem.Hazards.Add("corrosion.png"); }
             if (isTrue(exclamation)) { UploadStageChem.Hazards.Add("exclamation.png"); }
 
-
-
             HomeController.addChemical(UploadStageChem);
             return View(UploadStageChem);
         }
+
         //
-        // GET: /Admin/Updated
-        public ActionResult Updated(String id)
+        // GET:  /Admin/Updated
+        public ActionResult Updated()
+        {
+            return View(new Models.Chemical());
+        }
+        //
+        // POST: /Admin/Updated
+        public ActionResult Updated(string id, string amount, string chemName, string commName,
+            string ContSize, string ContUnit, string ContType, string CSCnum, string CASnum,
+            string Manufacturer, string ExpDate, string RoomNum, string Cabinet,
+            bool? health, bool? flame, bool? corrosion, bool? exclamation)
         {
             ToxCTS.Models.Chemical updatedChem = HomeController.getChemById(int.Parse(id));
+
+            updatedChem = new Models.Chemical();
+            updatedChem.Amount = Double.Parse(amount);
+            updatedChem.ChemName = chemName;
+            updatedChem.CommonName.Add(commName);
+            updatedChem.ChemContainer.Size = Int16.Parse(ContSize);
+            updatedChem.ChemContainer.Unit = ContUnit;
+            updatedChem.ChemContainer.Type = ContType;
+            updatedChem.CSC = CSCnum;
+            updatedChem.CAS = CASnum;
+            updatedChem.Manufacturer = Manufacturer;
+            updatedChem.ExpDate = DateTime.Parse(ExpDate);
+            updatedChem.location.room = RoomNum;
+            updatedChem.location.cabinet = Cabinet;
+            updatedChem.Hazards = new List<string>();
+            if (isTrue(health)) { updatedChem.Hazards.Add("health.png"); }
+            if (isTrue(flame)) { updatedChem.Hazards.Add("flame.png"); }
+            if (isTrue(corrosion)) { updatedChem.Hazards.Add("corrosion.png"); }
+            if (isTrue(exclamation)) { updatedChem.Hazards.Add("exclamation.png"); }
+
             return View(updatedChem);
         }
+
         //
         // GET: /Admin/Created
         public ActionResult Created()
         {
-            return View();
+            return View(new Models.Chemical());
         }
+
         //
         // POST: /Admin/Created
         [HttpPost]
@@ -115,6 +145,7 @@ namespace ToxCTS.Controllers
             return View();
         }
 
+        //
         // GET:  /Admin/Results
         public ActionResult Results(string commonName, string chemicalName, string CASnum, string CSCnum)
         {
@@ -159,6 +190,12 @@ namespace ToxCTS.Controllers
 
         //
         // GET: /Admin/Deleted 
+        public ActionResult Deleted()
+        {
+            return View();
+        }
+        //
+        // GET: /Admin/Deleted 
         public ActionResult Deleted(string id)
         {
             bool successful = HomeController.deleteChemById(int.Parse(id));
@@ -191,6 +228,7 @@ namespace ToxCTS.Controllers
 
             return File(fileBytes, System.Net.Mime.MediaTypeNames.Application.Octet, fileName);
         }
+
         //
         //Helper, returns true only if boolean is defined and true
         public static bool isTrue(bool? b) {
