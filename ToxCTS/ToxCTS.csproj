@@ -156,6 +156,16 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\Hazards\corrosion.png" />
+    <Content Include="Content\Hazards\environment.png" />
+    <Content Include="Content\Hazards\exclamation.png" />
+    <Content Include="Content\Hazards\explodingbomb.png" />
+    <Content Include="Content\Hazards\flame.png" />
+    <Content Include="Content\Hazards\flameovercircle.png" />
+    <Content Include="Content\Hazards\gascylinder.png" />
+    <Content Include="Content\Hazards\health.png" />
+    <Content Include="Content\Hazards\skullandbones.png" />
+    <Content Include="Content\logo.gif" />
     <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
     <Content Include="Content\themes\base\images\ui-bg_flat_75_ffffff_40x100.png" />
     <Content Include="Content\themes\base\images\ui-bg_glass_55_fbf9ee_1x400.png" />
@@ -212,6 +222,18 @@
     <Content Include="Content\themes\base\minified\jquery.ui.theme.min.css" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
+    <Content Include="Images\Hazards\corrosion.png" />
+    <Content Include="Images\Hazards\environment.png" />
+    <Content Include="Images\Hazards\exclamation.png" />
+    <Content Include="Images\Hazards\explodingbomb.png" />
+    <Content Include="Images\Hazards\flame.png" />
+    <Content Include="Images\Hazards\flameovercircle.png" />
+    <Content Include="Images\Hazards\gascylinder.png" />
+    <Content Include="Images\Hazards\health.png" />
+    <Content Include="Images\Hazards\skullandbones.png" />
+    <Content Include="Images\logo.gif" />
+    <Content Include="Images\top_button.png" />
+    <Content Include="Images\upArrow.gif" />
     <Content Include="Scripts\jquery-1.10.0.min.js" />
     <None Include="Properties\PublishProfiles\ctsprofile.pubxml" />
     <None Include="Scripts\jquery-1.8.2.intellisense.js" />
