@@ -10,6 +10,6 @@
 <h4>Upload a SDS:</h4>
 <form method="post" enctype="multipart/form-data" action="~/Admin/Created">
     <input type="number" name="ID" value="@Html.DisplayFor(model => model.ID)" hidden="hidden" />
-    <input type="file" name="FileUpload" accept=".pdf" />
+    <input type="file" name="FileUpload" />
     <input type="submit" name="Submit" id="Submit" value="Continue" />
 </form>

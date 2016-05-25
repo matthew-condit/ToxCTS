@@ -33,16 +33,18 @@ namespace ToxCTS.Controllers
         
         //
         // GET: /Admin/Upload
-        public ActionResult Upload(string amount, string chemName, string commName,
+        public ActionResult Upload(string chemName, string commName,
             string ContSize, string ContUnit, string ContType, string CSCnum, string CASnum, 
             string Manufacturer, string ExpDate, string RoomNum, string Cabinet, 
-            bool? health, bool? flame, bool? corrosion, bool? exclamation)
+            bool? health, bool? flame, bool? corrosion, bool? exclamation, string amount =  "0")
         {
             UploadStageChem = new Models.Chemical();
-            UploadStageChem.Amount = Double.Parse(amount);
+            try { UploadStageChem.Amount = Double.Parse(amount); }
+            catch { }
             UploadStageChem.ChemName = chemName;
             UploadStageChem.CommonName.Add(commName);
-            UploadStageChem.ChemContainer.Size = Int16.Parse(ContSize);
+            try { UploadStageChem.ChemContainer.Size = Int16.Parse(ContSize); }
+            catch { }
             UploadStageChem.ChemContainer.Unit = ContUnit;
             UploadStageChem.ChemContainer.Type = ContType;
             UploadStageChem.CSC = CSCnum;
@@ -96,10 +98,12 @@ namespace ToxCTS.Controllers
             ToxCTS.Models.Chemical updatedChem = HomeController.getChemById(int.Parse(id));
 
             updatedChem = new Models.Chemical();
-            updatedChem.Amount = Double.Parse(amount);
+            try { updatedChem.Amount = Double.Parse(amount); }
+            catch { }
             updatedChem.ChemName = chemName;
             updatedChem.CommonName.Add(commName);
-            updatedChem.ChemContainer.Size = Int16.Parse(ContSize);
+            try { updatedChem.ChemContainer.Size = Int16.Parse(ContSize); }
+            catch { }
             updatedChem.ChemContainer.Unit = ContUnit;
             updatedChem.ChemContainer.Type = ContType;
             updatedChem.CSC = CSCnum;
