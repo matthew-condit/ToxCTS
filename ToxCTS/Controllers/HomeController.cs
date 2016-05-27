@@ -40,7 +40,9 @@ namespace ToxCTS.Controllers
         // Find Chem based on Id
         public static ToxCTS.Models.Chemical getChemById(int ID)
         {
+            Debug.WriteLine(ID);
             foreach (Models.Chemical chem in Chemicals) {
+                Debug.WriteLine(chem.ID);
                 if (chem.ID == ID)
                 {
                     return chem;
@@ -94,7 +96,7 @@ namespace ToxCTS.Controllers
             {
                 if (!String.IsNullOrEmpty(ChemNameSearch))
                 {
-                    if (!chem.CommonName.Equals(ChemNameSearch))
+                    if (!chem.CommonNames.Equals(ChemNameSearch))
                     {
                         continue;
                     }

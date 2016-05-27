@@ -4,12 +4,12 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Edit</h2>
+<h2>Edit ID @Model.ID</h2>
 
 <form method="post" action="~/Admin/SDS" class="create-form">
     <h4>Amount:           </h4><input  type="number" placeholder="Amount" name="amount" value="@Html.DisplayFor(model =>model.Amount)" min="0" />
     <h4>Chemical Name:    </h4><input  type="text" placeholder="Chemical Name" name="chemName" value="@Html.DisplayFor(model =>model.ChemName)" />
-    <h4>Common Name:      </h4><input  type="text" placeholder="Common Name" name="comName" value="@Html.DisplayFor(model =>model.CommonName)" />
+    <h4>Common Names:      </h4><input type="text" placeholder="Common Name" name="commName" value="@string.Join(", ", Model.CommonNames)" />
     <h4>Container Size:   </h4><input  type="number" placeholder="Size" name="ContSize" value="@Html.DisplayFor(model =>model.ChemContainer.Size)" />
     <h4>Container Unit:   </h4><input  type="text" placeholder="Unit" list="units" name="ContUnit" value="@Html.DisplayFor(model =>model.ChemContainer.Unit)" />
     <h4> Container Type:  </h4><input  type="text" list="cont-types" placeholder="Glass/Plastic" name="ContType" value="@Html.DisplayFor(model =>model.ChemContainer.Type)" />

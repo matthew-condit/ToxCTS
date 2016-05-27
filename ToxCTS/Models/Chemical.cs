@@ -18,8 +18,8 @@ namespace ToxCTS.Models
         [Display(Name = "Chemical Name")]
         public String ChemName { get; set; }
 
-        [Display(Name = "Common Name")]
-        public List<String> CommonName { get; set; }
+        [Display(Name = "Common Names")]
+        public List<String> CommonNames { get; set; }
 
         [Display(Name= "Container")]
         public Container ChemContainer {get; set;}
@@ -59,7 +59,7 @@ namespace ToxCTS.Models
             this.ID = -1;
             this.Amount = 0.0;
             this.ChemName = "";
-            this.CommonName = new List<String>();
+            this.CommonNames = new List<String>();
             this.ChemContainer = new Container();
             this.CSC = "-1";
             this.CAS = "-1";

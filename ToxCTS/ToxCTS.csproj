@@ -156,6 +156,11 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Data\Database1.mdf" />
+    <Content Include="App_Data\Database1_log.ldf">
+      <DependentUpon>Database1.mdf</DependentUpon>
+    </Content>
+    <Content Include="App_Data\repositories\chemicals.xml" />
     <Content Include="Content\Hazards\corrosion.png" />
     <Content Include="Content\Hazards\environment.png" />
     <Content Include="Content\Hazards\exclamation.png" />

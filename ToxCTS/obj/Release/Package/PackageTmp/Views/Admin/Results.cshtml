@@ -16,7 +16,7 @@
             @Html.DisplayNameFor(model => model.ChemName)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.CommonName)
+            @Html.DisplayNameFor(model => model.CommonNames)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.ChemContainer.Size)
@@ -48,7 +48,7 @@
                 @Html.DisplayFor(modelItem => item.ChemName)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.CommonName)
+                @string.Join(", ", item.CommonNames)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.ChemContainer.Size)

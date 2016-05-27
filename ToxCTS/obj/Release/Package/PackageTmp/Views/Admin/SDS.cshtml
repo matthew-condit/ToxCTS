@@ -5,7 +5,7 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Upload</h2>
+<h2>Upload for @Model.ChemName</h2>
 <h4>Upload a SDS:</h4>
 <form method="post" enctype="multipart/form-data" action="~/Admin/Updated">
     <input type="number" name="ID" value="@Html.DisplayFor(model => model.ID)" hidden="hidden" />

@@ -6,8 +6,8 @@
 <h2>Search for the Chemical you would like to Edit</h2>
 
 <form  method="post" action="@Url.Action("Results", "Admin")" class="search-form">
+    <input type="search" name="chemicalName" placeholder="Chemical Name" />
     <input type="search" name="commonName"      placeholder="Common Name"/>
-    <input type="search" name="chemicalName"    placeholder="Chemical Name" />
     <input type="search" name="CASnum"          placeholder="CAS Number"/>
     <input type="search" name="CSCnum"          placeholder="CSC Number"/>
     <input type="submit" value="Search" />

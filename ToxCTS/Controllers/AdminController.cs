@@ -42,7 +42,7 @@ namespace ToxCTS.Controllers
             try { UploadStageChem.Amount = Double.Parse(amount); }
             catch { }
             UploadStageChem.ChemName = chemName;
-            UploadStageChem.CommonName.Add(commName);
+            UploadStageChem.CommonNames = commName.Split(',').Select(p => p.Trim()).ToList();
             try { UploadStageChem.ChemContainer.Size = Int16.Parse(ContSize); }
             catch { }
             UploadStageChem.ChemContainer.Unit = ContUnit;
@@ -71,6 +71,7 @@ namespace ToxCTS.Controllers
         }
         //
         // POST: /Admin/Updated
+        [HttpPost]
         public ActionResult Updated(String ID, HttpPostedFileBase FileUpload)
         {
             CreatedChem = HomeController.getChemById(int.Parse(ID));
@@ -97,11 +98,10 @@ namespace ToxCTS.Controllers
         {
             ToxCTS.Models.Chemical updatedChem = HomeController.getChemById(int.Parse(id));
 
-            updatedChem = new Models.Chemical();
             try { updatedChem.Amount = Double.Parse(amount); }
             catch { }
             updatedChem.ChemName = chemName;
-            updatedChem.CommonName.Add(commName);
+            updatedChem.CommonNames = commName.Split(',').Select(p => p.Trim()).ToList();
             try { updatedChem.ChemContainer.Size = Int16.Parse(ContSize); }
             catch { }
             updatedChem.ChemContainer.Unit = ContUnit;
@@ -175,36 +175,45 @@ namespace ToxCTS.Controllers
             List<Models.Chemical> SearchResults = new List<Models.Chemical>();
             foreach (Models.Chemical chem in chems)
             {
-                if (!String.IsNullOrEmpty(commonName))
+                try
                 {
-                    if (!chem.CommonName.Equals(commonName))
+                    if (!String.IsNullOrEmpty(commonName))
                     {
-                        continue;
+                        bool match = false;
+                        foreach (string name in chem.CommonNames) {
+                            Debug.WriteLine(name);
+                            if (name.Length >= commonName.Length && String.Compare(name.Substring(0, commonName.Length), commonName, true) == 0)
+                            {
+                                match = true;
+                            }
+                        }
+                        if (!match) continue;
                     }
-                }
-                if (!String.IsNullOrEmpty(chemicalName))
-                {
-                    if (!chem.ChemName.Equals(chemicalName))
+                    if (!String.IsNullOrEmpty(chemicalName))
                     {
-                        continue;
+                        if (chem.ChemName.Length >= chemicalName.Length && String.Compare(chem.ChemName.Substring(0, chemicalName.Length), chemicalName) != 0)
+                        {
+                            continue;
+                        }
                     }
-                }
-                if (!String.IsNullOrEmpty(CASnum))
-                {
-                    if (!chem.CAS.Equals(CASnum))
+                    if (!String.IsNullOrEmpty(CASnum) && !String.IsNullOrEmpty(chem.CAS))
                     {
-                        continue;
+                        if (!String.IsNullOrEmpty(chem.CAS) && !chem.CAS.Equals(CASnum))
+                        {
+                            continue;
+                        }
                     }
-                }
-                if (!String.IsNullOrEmpty(CSCnum))
-                {
-                    if (!chem.CSC.Equals(CSCnum))
+                    if (!String.IsNullOrEmpty(CSCnum))
                     {
-                        continue;
-                    }
+                        if (!String.IsNullOrEmpty(chem.CSC) && !chem.CSC.Equals(CSCnum))
+                        {
+                            continue;
+                        }
 
+                    }
+                    SearchResults.Add(chem);
                 }
-                SearchResults.Add(chem);
+                catch (Exception e) { Console.WriteLine(e); }
             }
             if (SearchResults.Count ==0) { ViewBag.Message = "No Results for this search."; }
             return View(SearchResults);
@@ -217,7 +226,8 @@ namespace ToxCTS.Controllers
             return View();
         }
         //
-        // GET: /Admin/Deleted 
+        // POST: /Admin/Deleted 
+        [HttpPost]
         public ActionResult Deleted(string id)
         {
             bool successful = HomeController.deleteChemById(int.Parse(id));

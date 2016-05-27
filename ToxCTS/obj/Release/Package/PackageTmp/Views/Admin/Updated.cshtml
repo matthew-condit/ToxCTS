@@ -10,7 +10,7 @@
 
 <h3>@Html.DisplayNameFor(model => model.ChemName): @Html.DisplayFor(model => model.ChemName)</h3>
 
-<h3>@Html.DisplayNameFor(model => model.CommonName): @Html.DisplayFor(model => model.CommonName)</h3>
+<h3>@Html.DisplayNameFor(model => model.CommonNames): @string.Join(", ", Model.CommonNames)</h3>
 
 <h3>@Html.DisplayNameFor(model => model.ChemContainer.Size): @Html.DisplayFor(model => model.ChemContainer.Size)</h3>
 
@@ -24,4 +24,4 @@
 
 <h3>@Html.DisplayNameFor(model => model.Manufacturer): @Html.DisplayFor(model => model.Manufacturer)</h3>
 
-<h3>@Html.DisplayNameFor(model => model.ExpDate): @Html.DisplayFor(model => model.ExpDate)</h3>
+<h3>@Html.DisplayNameFor(model => model.ExpDate): @String.Format("{0:d}", Model.ExpDate)</h3>

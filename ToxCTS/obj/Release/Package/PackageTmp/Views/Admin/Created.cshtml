@@ -25,10 +25,10 @@
     </div>
     <br />
     <div class="display-label">
-        @Html.DisplayNameFor(model => model.CommonName)
+        @Html.DisplayNameFor(model => model.CommonNames)
     </div>
     <div class="display-field">
-        @Html.DisplayFor(model => model.CommonName)
+        @string.Join(", ", Model.CommonNames)
     </div>
     <br />
     <div class="display-label">
