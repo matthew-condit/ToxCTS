@@ -63,112 +63,112 @@ namespace ToxCTS.DataServices
             AND Submitters.RecordStatus = 1
             AND Submitters.SubmitterClass = 'Contact'";
 
-        public static List<SponsorContact> GetSponsorContacts(string sponsorName)
-        {
-            List<SponsorContact> results = new List<SponsorContact>();
-            sponsorName += "%";
-            try
-            {
-                using (SqlConnection connection = new SqlConnection(connectionString))
-                {
-                    connection.Open();
-                    using (SqlCommand command = new SqlCommand(SelectSponsorContactsQuery, connection))
-                    {
-                        command.CommandType = CommandType.Text;
-                        command.Parameters.Add("@SponsorName", SqlDbType.NVarChar).Value = sponsorName;
+    //    public static List<SponsorContact> GetSponsorContacts(string sponsorName)
+    //    {
+    //        List<SponsorContact> results = new List<SponsorContact>();
+    //        sponsorName += "%";
+    //        try
+    //        {
+    //            using (SqlConnection connection = new SqlConnection(connectionString))
+    //            {
+    //                connection.Open();
+    //                using (SqlCommand command = new SqlCommand(SelectSponsorContactsQuery, connection))
+    //                {
+    //                    command.CommandType = CommandType.Text;
+    //                    command.Parameters.Add("@SponsorName", SqlDbType.NVarChar).Value = sponsorName;
 
-                        SqlDataReader reader = command.ExecuteReader();
-                        while (reader.Read())
-                        {
-                            SponsorContact sponsor = CreateNewSponsor(reader);
-                            results.Add(sponsor);
-                        }
-                    }
-                }
-            }
-            catch (SqlException sqlEx)
-            {
-                Debug.WriteLine(sqlEx.ToString());
-                //ErrorHandler.CreateLogFile(ErrorFormName, "GetSponsorContacts", sqlEx);
-            }
-            return results;
-        }
+    //                    SqlDataReader reader = command.ExecuteReader();
+    //                    while (reader.Read())
+    //                    {
+    //                        SponsorContact sponsor = CreateNewSponsor(reader);
+    //                        results.Add(sponsor);
+    //                    }
+    //                }
+    //            }
+    //        }
+    //        catch (SqlException sqlEx)
+    //        {
+    //            Debug.WriteLine(sqlEx.ToString());
+    //            //ErrorHandler.CreateLogFile(ErrorFormName, "GetSponsorContacts", sqlEx);
+    //        }
+    //        return results;
+    //    }
 
-        public static IList GetSponsorNames(string searchString)
-        {
-            IList results = new ArrayList();
-            searchString += "%";
-            try
-            {
-                using (SqlConnection connection = new SqlConnection(connectionString))
-                {
-                    connection.Open();
-                    using (SqlCommand command = new SqlCommand(SelectSponsorName, connection))
-                    {
-                        command.CommandType = CommandType.Text;
-                        command.Parameters.Add("@SponsorName", SqlDbType.NVarChar).Value = searchString;
+    //    public static IList GetSponsorNames(string searchString)
+    //    {
+    //        IList results = new ArrayList();
+    //        searchString += "%";
+    //        try
+    //        {
+    //            using (SqlConnection connection = new SqlConnection(connectionString))
+    //            {
+    //                connection.Open();
+    //                using (SqlCommand command = new SqlCommand(SelectSponsorName, connection))
+    //                {
+    //                    command.CommandType = CommandType.Text;
+    //                    command.Parameters.Add("@SponsorName", SqlDbType.NVarChar).Value = searchString;
 
-                        SqlDataReader reader = command.ExecuteReader();
-                        while (reader.Read())
-                        {
-                            string sponsorName = reader[0].ToString().Trim();
-                            results.Add(sponsorName);
-                        }
-                    }
-                }
-            }
-            catch (SqlException sqlEx)
-            {
-                Debug.WriteLine(sqlEx.ToString());
-                //ErrorHandler.CreateLogFile(ErrorFormName, "GetSponsorContacts", sqlEx);
-            }
-            return results;
-        }
+    //                    SqlDataReader reader = command.ExecuteReader();
+    //                    while (reader.Read())
+    //                    {
+    //                        string sponsorName = reader[0].ToString().Trim();
+    //                        results.Add(sponsorName);
+    //                    }
+    //                }
+    //            }
+    //        }
+    //        catch (SqlException sqlEx)
+    //        {
+    //            Debug.WriteLine(sqlEx.ToString());
+    //            //ErrorHandler.CreateLogFile(ErrorFormName, "GetSponsorContacts", sqlEx);
+    //        }
+    //        return results;
+    //    }
 
-        public static SponsorContact GetSponsorByContactCode(string contactCode)
-        {
-            SponsorContact result = new SponsorContact();
-            try
-            {
-                using (SqlConnection connection = new SqlConnection(connectionString))
-                {
-                    connection.Open();
-                    using (SqlCommand command = new SqlCommand(ContactInfoByContactCode, connection))
-                    {
-                        command.CommandType = CommandType.Text;
-                        command.Parameters.Add("@ContactCode", SqlDbType.NVarChar).Value = contactCode;
+    //    public static SponsorContact GetSponsorByContactCode(string contactCode)
+    //    {
+    //        SponsorContact result = new SponsorContact();
+    //        try
+    //        {
+    //            using (SqlConnection connection = new SqlConnection(connectionString))
+    //            {
+    //                connection.Open();
+    //                using (SqlCommand command = new SqlCommand(ContactInfoByContactCode, connection))
+    //                {
+    //                    command.CommandType = CommandType.Text;
+    //                    command.Parameters.Add("@ContactCode", SqlDbType.NVarChar).Value = contactCode;
 
-                        SqlDataReader reader = command.ExecuteReader();
-                        while (reader.Read())
-                        {
-                            result = CreateNewSponsor(reader);
-                        }
-                    }
-                }
-            }
-            catch (SqlException sqlEx)
-            {
-                Debug.WriteLine(sqlEx.ToString());
-                //ErrorHandler.CreateLogFile(ErrorFormName, "GetSponsorByContactCode", sqlEx);
-            }
-            return result;
-        }
+    //                    SqlDataReader reader = command.ExecuteReader();
+    //                    while (reader.Read())
+    //                    {
+    //                        result = CreateNewSponsor(reader);
+    //                    }
+    //                }
+    //            }
+    //        }
+    //        catch (SqlException sqlEx)
+    //        {
+    //            Debug.WriteLine(sqlEx.ToString());
+    //            //ErrorHandler.CreateLogFile(ErrorFormName, "GetSponsorByContactCode", sqlEx);
+    //        }
+    //        return result;
+    //    }
 
-        private static SponsorContact CreateNewSponsor(SqlDataReader reader)
-        {
-            SponsorContact sponsor = new SponsorContact();
-            sponsor.SponsorCode = reader[0].ToString().Trim();
-            sponsor.ContactCode = reader[1].ToString().Trim();
-            sponsor.SponsorName = reader[2].ToString().Trim();
-            sponsor.ContactName = reader[3].ToString().Trim();
-            sponsor.Address = reader[4].ToString().Trim();
-            sponsor.City = reader[5].ToString().Trim();
-            sponsor.State = reader[6].ToString().Trim();
-            sponsor.ZipCode = reader[7].ToString().Trim();
-            sponsor.PhoneNumber = reader[9].ToString().Trim();
-            sponsor.FaxNumber = reader[10].ToString().Trim();
-            sponsor.Email = reader[11].ToString().Trim();
-            return sponsor;
-        }
+    //    private static SponsorContact CreateNewSponsor(SqlDataReader reader)
+    //    {
+    //        SponsorContact sponsor = new SponsorContact();
+    //        sponsor.SponsorCode = reader[0].ToString().Trim();
+    //        sponsor.ContactCode = reader[1].ToString().Trim();
+    //        sponsor.SponsorName = reader[2].ToString().Trim();
+    //        sponsor.ContactName = reader[3].ToString().Trim();
+    //        sponsor.Address = reader[4].ToString().Trim();
+    //        sponsor.City = reader[5].ToString().Trim();
+    //        sponsor.State = reader[6].ToString().Trim();
+    //        sponsor.ZipCode = reader[7].ToString().Trim();
+    //        sponsor.PhoneNumber = reader[9].ToString().Trim();
+    //        sponsor.FaxNumber = reader[10].ToString().Trim();
+    //        sponsor.Email = reader[11].ToString().Trim();
+    //        return sponsor;
+    //    }
     }
 }
