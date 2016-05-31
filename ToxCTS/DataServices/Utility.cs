@@ -24,7 +24,7 @@ namespace ToxCTS.DataServices
 
         internal static string GetMatrixConnectionString()
         {
-            string LIMS = @"Toxikon.Web.ProtocolManager.Properties.Settings.LIMSConnectionString";
+            string LIMS = @"ToxCTS.Properties.Settings.LIMSConnectionString";
             string result = "";
             ConnectionStringSettings settings =
                 ConfigurationManager.ConnectionStrings[LIMS];

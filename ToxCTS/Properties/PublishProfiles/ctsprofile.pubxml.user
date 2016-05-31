@@ -6,7 +6,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <TimeStampOfAssociatedLegacyPublishXmlFile />
-    <_PublishTargetUrl>\\cts\c$\www\ToxCTS</_PublishTargetUrl>
+    <_PublishTargetUrl>\\cts\c$\www\ToxCTSDev</_PublishTargetUrl>
   </PropertyGroup>
   <ItemGroup>
     <File Include="App_Data/Database1.mdf">
@@ -139,7 +139,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>05/16/2016 09:34:50</publishTime>
     </File>
     <File Include="bin/ToxCTS.dll">
-      <publishTime>05/27/2016 08:54:07</publishTime>
+      <publishTime>05/27/2016 10:47:29</publishTime>
     </File>
     <File Include="bin/WebGrease.dll">
       <publishTime>05/16/2016 09:34:58</publishTime>

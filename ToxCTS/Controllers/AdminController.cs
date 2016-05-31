@@ -20,7 +20,6 @@ namespace ToxCTS.Controllers
 
         public ActionResult Index()
         {
-
             return View();
         }
 
