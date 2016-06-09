@@ -26,6 +26,8 @@ namespace ToxCTS.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=TOXDB;Initial Catalog=MATTOXIKONPLUS;Persist Security Info=True;User " +
+            "ID=cdma;Password=CDMAadmin")]
         public string LIMSConnectionString {
             get {
                 return ((string)(this["LIMSConnectionString"]));

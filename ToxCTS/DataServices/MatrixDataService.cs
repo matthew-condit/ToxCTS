@@ -15,6 +15,18 @@ namespace ToxCTS.DataServices
         private static string connectionString = Utility.GetMatrixConnectionString();
         private const string ErrorClassName = "MatrixDataService";
 
+
+        //MY CODE
+        private const string SelectChemicals = @"
+        SELECT      UserTable3.UserText2 As ChemName, 
+                    UserTable3.UserText3 As Hazards, 
+                    UserTable3.UserText5 As Storage, 
+                    UserTable3.UserText6 As Unit, 
+                    
+        ";
+
+
+
         private const string SelectSponsorContactsQuery = @"
             SELECT Submitters.SubmitterText1 AS SponsorCode,
 		           Submitters.SubmitterCode AS ContactCode,
@@ -62,6 +74,61 @@ namespace ToxCTS.DataServices
             WHERE Submitters.SubmitterCode = @ContactCode
             AND Submitters.RecordStatus = 1
             AND Submitters.SubmitterClass = 'Contact'";
+
+
+
+    public static List<Chemical> GetChemicals()
+    {
+        List<Chemical> chemicals = new List<Chemical>();
+        try
+        {
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+                using (SqlCommand command = new SqlCommand(SelectChemicals, connection ))
+                {
+                    command.CommandType = CommandType.Text;
+
+                    SqlDataReader reader = command.ExecuteReader();
+                    while (reader.Read())
+                    {
+                        Chemical chem = CreateNewChemical(reader);
+                        chemicals.Add(chem);
+                    }
+                }
+            }
+        }
+        catch (SqlException sqlEx)
+        {
+            Debug.WriteLine(sqlEx.ToString());
+        }
+
+        return chemicals;
+    }
+
+
+    public static Chemical CreateNewChemical(SqlDataReader reader)
+    {
+        Chemical Chem = new Chemical();
+        Chem = new Models.Chemical();
+        Chem.Amount;
+        Chem.ChemName = ;
+        Chem.CommonNames ;
+        Chem.ChemContainer.Size = ; 
+        Chem.ChemContainer.Unit = ;
+        Chem.ChemContainer.Type = ;
+        Chem.CSC = ;
+        Chem.CAS = ;
+        Chem.Manufacturer = ;
+        Chem.ExpDate = ;
+        Chem.location.room = ;
+        Chem.location.cabinet = ;
+        Chem.ID = ;
+        //do the hazards too
+        return Chem;
+    }
+
+
 
     //    public static List<SponsorContact> GetSponsorContacts(string sponsorName)
     //    {
