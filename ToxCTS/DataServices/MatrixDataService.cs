@@ -18,11 +18,10 @@ namespace ToxCTS.DataServices
 
         //MY CODE
         private const string SelectChemicals = @"
-        SELECT      UserTable3.UserText2 As ChemName, 
-                    UserTable3.UserText3 As Hazards, 
-                    UserTable3.UserText5 As Storage, 
-                    UserTable3.UserText6 As Unit, 
-                    
+        SELECT      * 
+        FROM UserTable3 
+        WHERE
+        AND
         ";
 
 
@@ -30,7 +29,7 @@ namespace ToxCTS.DataServices
         private const string SelectSponsorContactsQuery = @"
             SELECT Submitters.SubmitterText1 AS SponsorCode,
 		           Submitters.SubmitterCode AS ContactCode,
-	               Submitters.SubmitterName AS SponsorName,
+	               Submitters.SubmitterName AS SponsorName,1
 	               ISNULL(Submitters.SubmitterText2, '') + ' ' +
 	               ISNULL(Submitters.SubmitterText3, '') AS ContactName,
 	               ISNULL(Submitters.SubmitterAddress1, '') + 
@@ -110,20 +109,20 @@ namespace ToxCTS.DataServices
     public static Chemical CreateNewChemical(SqlDataReader reader)
     {
         Chemical Chem = new Chemical();
-        Chem = new Models.Chemical();
-        Chem.Amount;
-        Chem.ChemName = ;
-        Chem.CommonNames ;
-        Chem.ChemContainer.Size = ; 
-        Chem.ChemContainer.Unit = ;
-        Chem.ChemContainer.Type = ;
-        Chem.CSC = ;
-        Chem.CAS = ;
-        Chem.Manufacturer = ;
-        Chem.ExpDate = ;
-        Chem.location.room = ;
-        Chem.location.cabinet = ;
-        Chem.ID = ;
+        //Chem = new Models.Chemical();
+        //Chem.Amount;
+        //Chem.ChemName = ;
+        //Chem.CommonNames ;
+        //Chem.ChemContainer.Size = ; 
+        //Chem.ChemContainer.Unit = ;
+        //Chem.ChemContainer.Type = ;
+        //Chem.CSC = ;
+        //Chem.CAS = ;
+        //Chem.Manufacturer = ;
+        //Chem.ExpDate = ;
+        //Chem.location.room = ;
+        //Chem.location.cabinet = ;
+        //Chem.ID = ;
         //do the hazards too
         return Chem;
     }
