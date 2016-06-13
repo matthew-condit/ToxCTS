@@ -8,8 +8,8 @@ namespace ToxCTS.Models
 {
     public class Container
     {
-        [Display(Name = "Size")]
-        public double Size { get; set; }
+        [Display(Name = "Volume")]
+        public double Volume { get; set; }
 
         [Display(Name = "Unit")]
         public String Unit { get; set; }
@@ -19,7 +19,7 @@ namespace ToxCTS.Models
 
         public Container()
         {
-            this.Size = 0;
+            this.Volume = 0;
             this.Unit = "N/a";
             this.Type = "N/a";
         }

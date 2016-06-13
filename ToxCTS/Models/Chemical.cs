@@ -24,14 +24,32 @@ namespace ToxCTS.Models
         [Display(Name= "Container")]
         public Container ChemContainer {get; set;}
 
+        [Display(Name = "Storage Requirements")]
+        public String storage { get; set; }
+
         [Display(Name = "CSC Number")]
         public String CSC { get; set; }
 
         [Display(Name = "CAS Number")]
         public String CAS { get; set; }
 
+        [Display(Name = "CAT Number")]
+        public String CAT { get; set; }
+
+        [Display(Name = "LOT Number")]
+        public String LOT { get; set; }
+
         [Display(Name = "Manufacturer")]
         public String Manufacturer { get; set; }
+
+        [Display(Name = "Approved By")]
+        public String ApprovedBy { get; set; }
+
+        [Display(Name = "Date Received")]
+        public DateTime RecDate { get; set; }
+
+        [Display(Name = "Received By")]
+        public String ReceivedBy { get; set; }
 
         [Display(Name = "Exp. Date")]
         [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:yyyy-MM-dd}")]

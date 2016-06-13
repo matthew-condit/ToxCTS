@@ -109,22 +109,35 @@ namespace ToxCTS.DataServices
     public static Chemical CreateNewChemical(SqlDataReader reader)
     {
         Chemical Chem = new Chemical();
-        //Chem = new Models.Chemical();
-        //Chem.Amount;
-        //Chem.ChemName = ;
-        //Chem.CommonNames ;
-        //Chem.ChemContainer.Size = ; 
-        //Chem.ChemContainer.Unit = ;
-        //Chem.ChemContainer.Type = ;
-        //Chem.CSC = ;
-        //Chem.CAS = ;
-        //Chem.Manufacturer = ;
-        //Chem.ExpDate = ;
-        //Chem.location.room = ;
-        //Chem.location.cabinet = ;
-        //Chem.ID = ;
+        Chem.Amount = reader[0].ToString().Trim();
+        Chem.ChemName =  reader[1].ToString().Trim();
+        Chem.CommonNames.Add(reader[2].ToString().Trim());
+        Chem.ChemContainer.Volume =  reader[3].ToString().Trim(); 
+        Chem.ChemContainer.Unit =  reader[4].ToString().Trim();
+        Chem.ChemContainer.Type =   reader[5].ToString().Trim();
+        Chem.CSC  = reader[6].ToString().Trim();
+        Chem.CAS  = reader[7].ToString().Trim();
+        Chem.Manufacturer  = reader[8].ToString().Trim();
+        Chem.ExpDate  = DateTime.Parse(reader[9].ToString().Trim());
+        Chem.location.room  = reader[10].ToString().Trim();
+        Chem.location.cabinet  = reader[11].ToString().Trim();
+        Chem.ID  = reader[12].ToString().Trim();
         //do the hazards too
         return Chem;
+    }
+
+    public static Double myTryParse(string s) 
+    {
+        Double d;
+        try
+        {
+
+        }
+        catch
+        {
+
+        }
+        return d;
     }
 
 
