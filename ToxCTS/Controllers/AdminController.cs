@@ -270,7 +270,7 @@ namespace ToxCTS.Controllers
                     return true;
                 }
             }
-            catch (Exception e)
+            catch
             {
              
             }
@@ -282,7 +282,7 @@ namespace ToxCTS.Controllers
             {
                 if (! h.Equals(null)) return false;
             }
-            catch (Exception e)
+            catch
             {
             }
             return true;

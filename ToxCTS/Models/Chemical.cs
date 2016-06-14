@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.ComponentModel.DataAnnotations;
 using System.Data.Entity;
+using ToxCTS.Controllers;
 
 namespace ToxCTS.Models
 {
@@ -25,7 +26,7 @@ namespace ToxCTS.Models
         public Container ChemContainer {get; set;}
 
         [Display(Name = "Storage Requirements")]
-        public String storage { get; set; }
+        public String Storage { get; set; }
 
         [Display(Name = "CSC Number")]
         public String CSC { get; set; }
@@ -74,7 +75,7 @@ namespace ToxCTS.Models
         // Creates bland new Chemical
         public Chemical()
         {
-            this.ID = -1;
+            this.ID = HomeController.getNextID();
             this.Amount = 0.0;
             this.ChemName = "";
             this.CommonNames = new List<String>();

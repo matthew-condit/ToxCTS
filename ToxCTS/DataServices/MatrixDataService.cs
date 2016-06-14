@@ -18,7 +18,10 @@ namespace ToxCTS.DataServices
 
         //MY CODE
         private const string SelectChemicals = @"
-        SELECT      UserTable3.UserText2 As ChemName 
+        SELECT      UserTable3.UserText2 As ChemName, 
+                    UserTable3.UserText5 As Storage,
+                    UserTable3.UserText6 As Units, 
+                    UserTable3.userText8 As CAS
         FROM UserTable3 
         ";
 
@@ -99,8 +102,8 @@ namespace ToxCTS.DataServices
         {
             Debug.WriteLine(sqlEx.ToString());
         }
-
-        return chemicals;
+        Debug.WriteLine(chemicals.Count);
+        return chemicals.GetRange(0, 100);
     }
 
 
@@ -108,6 +111,9 @@ namespace ToxCTS.DataServices
     {
         Chemical Chem = new Chemical();
         Chem.ChemName = reader[0].ToString().Trim();
+        Chem.Storage = reader[1].ToString().Trim();
+        Chem.ChemContainer.Unit = reader[2].ToString().Trim();
+        Chem.CAS = reader[3].ToString().Trim();
         //do the hazards too
         return Chem;
     }
