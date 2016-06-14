@@ -11,7 +11,7 @@ namespace ToxCTS.Models
     public class Chemical
     {
         [Display(Name = "ID")]
-        public int ID { get; set; }
+        public long ID { get; set; }
 
         [Display(Name = "Chemical Name")]
         public String ChemName { get; set; }
@@ -76,19 +76,13 @@ namespace ToxCTS.Models
         public Chemical()
         {
             this.ID = HomeController.getNextID();
-            this.Amount = 0.0;
             this.ChemName = "";
             this.CommonNames = new List<String>();
             this.ChemContainer = new Container();
-            this.CSC = "-1";
-            this.CAS = "-1";
-            this.Manufacturer = "";
             this.ExpDate = DateTime.Now;
             this.GHS = new List<string>();
             this.Hazards = new List<string>();
             this.location = new Location();
-            this.FileName = "";
-            this.FilePath = "C:/";
         }
     }
 

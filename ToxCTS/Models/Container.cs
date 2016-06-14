@@ -17,11 +17,11 @@ namespace ToxCTS.Models
         [Display(Name = "Type of Glass/Plastic")]
         public String Type { get; set; }
 
-        public Container()
-        {
-            this.Size = 0;
-            this.Unit = "N/a";
-            this.Type = "N/a";
-        }
+        //public Container()
+        //{
+        //    this.Size = 0;
+        //    this.Unit = "N/a";
+        //    this.Type = "N/a";
+        //}
     }
 }

@@ -102,8 +102,7 @@ namespace ToxCTS.DataServices
         {
             Debug.WriteLine(sqlEx.ToString());
         }
-        Debug.WriteLine(chemicals.Count);
-        return chemicals.GetRange(0, 100);
+        return chemicals;
     }
 
 

@@ -12,7 +12,7 @@ namespace ToxCTS.Controllers
     public class HomeController : Controller
     {
         private static List<ToxCTS.Models.Chemical> Chemicals = new List<ToxCTS.Models.Chemical>();
-        private static int nextID = 1;
+        private static long nextID = 1;
 
         
         //
@@ -71,7 +71,7 @@ namespace ToxCTS.Controllers
 
         //
         //  Assign the next ID for a newly created Chemical 
-        public static int getNextID()
+        public static long getNextID()
         {
             nextID++;
             return nextID - 1;
@@ -80,7 +80,7 @@ namespace ToxCTS.Controllers
         // GET: /Home/
         public ActionResult Index()
         {
-            Chemicals = MatrixDataService.GetChemicals();
+            Chemicals = MatrixDataService.GetChemicals().GetRange(0, 100);
             if (Chemicals.Count == 0)
             {
                 ViewBag.Message = "We're sorry, there seems to be an issue with our Database.  Please check back later and email IT.";

@@ -7,7 +7,7 @@
 <h3>All Fields Must be Filled out correctly to submit a new Chemical.</h3>
 
 <form class="create-form" method="post" action="~/Admin/Upload">
-    <h4>Amount:           </h4><input type="number"    name="amount"       placeholder="Amount" min="0" />
+    <h4>Amount:           </h4><input type="number"    name="amount"       placeholder="Amount" min="1" />
     <h4>Chemical Name:    </h4><input required="required" type="text" name="chemName" placeholder="Chemical Name" />
     <h4>Common Name:      </h4><input type="text" name="commName" placeholder="Common Names" /><br />
     <h4>Container Size:   </h4> 
@@ -19,6 +19,7 @@
         <input  type="text" name="ContUnit" placeholder="Container Unit" />
         <input required="required" type="text" name="ContType" placeholder="Container Type" />
     </div>
+    <h4>Storage Requirements:</h4><input list="temps" type="text" name="storage" placeholder="Select One.." />
     <h4>CSC #:            </h4><input  type="text" name="CSCnum" placeholder="CSC Number" min="0" />
     <h4>CAS #:            </h4><input  type="text" name="CASnum" placeholder="CAS Number" min="0" />
     <h4> Manufacturer:    </h4><input  type="text" name="Manufacturer" placeholder="Manufacturer Name" />
@@ -40,3 +41,20 @@
     <input type="submit" value="Create" />
 </form>
 
+<datalist id="temps">
+    <option value="4 +/- 2°C">4 +/- 2°C</option>
+    <option value="Negative 20 +/-4°C">Negative 20 +/-4°C</option>
+    <option value="Negative 80°C">Negative 80°C</option>
+    <option value="Room Temp">Room Temp</option>
+</datalist>
+
+<datalist id="units">
+    <option value="cm">cm</option>
+    <option value="cm2">cm2</option>
+    <option value="mg">mg</option>
+    <option value="g">g</option>
+    <option value="kg">kg</option>
+    <option value="mL">mL</option>
+    <option value="L">L</option>
+    <option value="gallon">gallon</option>
+</datalist>
