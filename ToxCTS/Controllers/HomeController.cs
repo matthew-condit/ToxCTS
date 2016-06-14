@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using System.Diagnostics;
 using System.IO;
+using ToxCTS.DataServices;
 
 namespace ToxCTS.Controllers
 {
@@ -79,7 +80,7 @@ namespace ToxCTS.Controllers
         // GET: /Home/
         public ActionResult Index()
         {
-
+            Chemicals = MatrixDataService.GetChemicals();
             if (Chemicals.Count == 0)
             {
                 ViewBag.Message = "We're sorry, there seems to be an issue with our Database.  Please check back later and email IT.";

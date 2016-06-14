@@ -66,3 +66,5 @@ c:\users\mcondit\documents\visual studio 2013\Projects\ToxCTS\ToxCTS\bin\zh-Hant
 c:\users\mcondit\documents\visual studio 2013\Projects\ToxCTS\ToxCTS\obj\Debug\ToxCTS.csprojResolveAssemblyReference.cache
 c:\users\mcondit\documents\visual studio 2013\Projects\ToxCTS\ToxCTS\obj\Debug\ToxCTS.dll
 c:\users\mcondit\documents\visual studio 2013\Projects\ToxCTS\ToxCTS\obj\Debug\ToxCTS.pdb
+C:\Users\mcondit\documents\visual studio 2013\Projects\ToxCTS\ToxCTS\bin\ToxCTS.dll.CodeAnalysisLog.xml
+C:\Users\mcondit\documents\visual studio 2013\Projects\ToxCTS\ToxCTS\bin\ToxCTS.dll.lastcodeanalysissucceeded

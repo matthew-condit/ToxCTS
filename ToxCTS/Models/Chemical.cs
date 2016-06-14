@@ -12,14 +12,14 @@ namespace ToxCTS.Models
         [Display(Name = "ID")]
         public int ID { get; set; }
 
-        [Display(Name = "Amount")]
-        public double Amount { get; set; }
-
         [Display(Name = "Chemical Name")]
         public String ChemName { get; set; }
 
         [Display(Name = "Common Names")]
         public List<String> CommonNames { get; set; }
+
+        [Display(Name = "Amount")]
+        public double Amount { get; set; }
 
         [Display(Name= "Container")]
         public Container ChemContainer {get; set;}

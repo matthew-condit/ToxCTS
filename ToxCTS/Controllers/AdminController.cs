@@ -42,7 +42,7 @@ namespace ToxCTS.Controllers
             catch { }
             UploadStageChem.ChemName = chemName;
             UploadStageChem.CommonNames = commName.Split(',').Select(p => p.Trim()).ToList();
-            try { UploadStageChem.ChemContainer.Volume = Int16.Parse(ContSize); }
+            try { UploadStageChem.ChemContainer.Size = Int16.Parse(ContSize); }
             catch { }
             UploadStageChem.ChemContainer.Unit = ContUnit;
             UploadStageChem.ChemContainer.Type = ContType;
@@ -101,7 +101,7 @@ namespace ToxCTS.Controllers
             catch { }
             updatedChem.ChemName = chemName;
             updatedChem.CommonNames = commName.Split(',').Select(p => p.Trim()).ToList();
-            try { updatedChem.ChemContainer.Volume = Int16.Parse(ContSize); }
+            try { updatedChem.ChemContainer.Size = Int16.Parse(ContSize); }
             catch { }
             updatedChem.ChemContainer.Unit = ContUnit;
             updatedChem.ChemContainer.Type = ContType;
